@@ -12,14 +12,8 @@ var server = new WebpackDevServer(compiler, {
   contentBase: "dist",
   // Can also be an array, or: contentBase: "http://localhost/",
 
-  // inline: true,
+  inline: true,
   hot: true,
-
-  historyApiFallback: false,
-  // Set this as true if you want to access dev server from arbitrary url.
-  // This is handy if you are using a html5 router.
-
-
 
   setup: function(app) {
     // app.use(function(req, res) {

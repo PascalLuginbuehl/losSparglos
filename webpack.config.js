@@ -1,12 +1,19 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+  , webpack = require('webpack')
+
 module.exports = {
   context: __dirname + "/src",
-  entry: "./index",
+  entry: {
+    app: [
+        "./index",
+      ]
+    },
 
   output: {
       path: __dirname + "/dist",
       filename: "bundle.js"
   },
-  
+
   module: {
     rules: [{
       test: /\.js$/,
@@ -15,8 +22,10 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['env']
-        }
+        },
       }
+    }, {
+      test: /\.tsx?$/, loader: 'ts-loader'
     }]
   },
 
@@ -28,6 +37,12 @@ module.exports = {
       "node_modules",
     ],
 
-    extensions: [".js", ".json", ".css", ".scss"],
-  }
+    extensions: [".js", ".json", ".css", ".scss", ".ts"],
+  },
+
+
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }
