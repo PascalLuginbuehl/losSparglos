@@ -26,6 +26,17 @@ module.exports = {
       }
     }, {
       test: /\.tsx?$/, loader: 'ts-loader'
+    }, {
+      test: /\.(png|jpg|gif)$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {}
+        }
+      ]
+    }, {
+      test: /\.css$/,
+      use: [ 'style-loader', 'css-loader' ]
     }]
   },
 
@@ -39,7 +50,6 @@ module.exports = {
 
     extensions: [".js", ".json", ".css", ".scss", ".ts"],
   },
-
 
   plugins: [
     new HtmlWebpackPlugin(),

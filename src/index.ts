@@ -1,25 +1,13 @@
-class Render {
-  ctx: CanvasRenderingContext2D
-  canvas: HTMLCanvasElement
+import Game from "./core/Game"
+import Render from "./core/Render"
 
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas
-    const ctx = this.canvas.getContext('2d');
-    this.ctx = ctx
-
-
-    canvas.height = 500
-    canvas.width = 500
-
-
-    ctx.rect(20,20,150,100);
-    ctx.stroke();
-  }
-}
+import './css/index.css'
+import './images/dirt.png'
 
 
 const canvas = document.createElement('canvas')
 document.body.appendChild(canvas)
 
-const render = new Render(canvas)
-console.log(render)
+
+const game = new Game()
+const render = new Render(canvas, game)
