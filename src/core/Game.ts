@@ -5,6 +5,7 @@ import Body from "./Body"
 import Model from "./Model"
 import Hitbox from "./Hitbox"
 import Rectangle from "./Rectangle"
+import debugConsole from "./debugConsole"
 
 
 interface Keys {
@@ -86,6 +87,7 @@ export default class Game {
         e.preventDefault()
       }
     })
+
 
     setInterval(this.gameLoop.bind(this), 16)
   }

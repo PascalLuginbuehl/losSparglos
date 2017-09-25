@@ -1,7 +1,7 @@
 import Game from "./core/Game"
 import Render from "./core/Render"
 
-import './css/index.css'
+import './css/index.scss'
 import './images/dirt.png'
 import './images/entities.png'
 import './images/blocks.png'

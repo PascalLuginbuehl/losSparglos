@@ -1,4 +1,5 @@
 import Game from "./Game"
+import debugConsole from "./debugConsole"
 
 export default class Render {
   ctx: CanvasRenderingContext2D
@@ -46,9 +47,11 @@ export default class Render {
 
         setInterval(this.renderLoop.bind(this), 16)
       })
+    })
 
-
-
+    let debug = new debugConsole()
+    debug.addCheckbox("lol", (e) => {
+      console.log(e)
     })
   }
 
