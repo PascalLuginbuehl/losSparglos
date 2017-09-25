@@ -31,15 +31,24 @@ export default class Render {
 
     // Preload images images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
-      // this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width);
-      // this.mapCtx.fillStyle = this.game.map.background;
-      // this.mapCtx.fill();
+      this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width)
+      let image = new Image
+      image.src = "./images/background.png"
+      image.addEventListener('load', () => {
 
-      for (let i = 0; i < this.game.blocksMap.length; i++) {
-        this.game.blocksMap[i].render(this.mapCtx);
-      }
+        var pattern = ctx.createPattern(image, 'repeat');
+        this.mapCtx.fillStyle = pattern
+        this.mapCtx.fill()
 
-      setInterval(this.renderLoop.bind(this), 16)
+        for (let i = 0; i < this.game.blocksMap.length; i++) {
+          this.game.blocksMap[i].render(this.mapCtx);
+        }
+
+        setInterval(this.renderLoop.bind(this), 16)
+      })
+
+
+
     })
   }
 
@@ -51,7 +60,7 @@ export default class Render {
     this.ctx.save()
 
     // Translate to cneter of thing
-    // this.ctx.translate(Math.round(this.cameraEntity.position.x) * -1 + Math.round(this.canvas.width/2), Math.round(this.cameraEntity.position.y) * -1  + Math.round(this.canvas.height/2))
+    this.ctx.translate(Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width/2), Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height/2))
 
     // Draw map, to safe performence
     this.ctx.drawImage(this.mapCanvas, 0, 0)

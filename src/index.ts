@@ -5,6 +5,7 @@ import './css/index.css'
 import './images/dirt.png'
 import './images/entities.png'
 import './images/blocks.png'
+import './images/background.png'
 import './images/props.png'
 
 

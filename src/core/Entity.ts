@@ -4,6 +4,7 @@ import Model from "./Model"
 import Rectangle from "./Rectangle"
 import Hitbox from "./Hitbox"
 
+let bobbingCurve: number = 0
 
 export default class Entity extends Body {
   velocity: V
@@ -22,12 +23,23 @@ export default class Entity extends Body {
   render(ctx: CanvasRenderingContext2D) {
     let textureOrigin = this.model.textureOrigin
     let textureSize = this.model.textureSize
+    let position = this.position
 
     if (this.model.isMovingSprite) {
       textureOrigin = new V(textureOrigin.x + this.getSpriteOffset() * textureSize.x, textureOrigin.y)
     }
 
-    ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, this.position.x, this.position.y, this.model.textureSize.x, this.model.textureSize.y)
+    if (this.model.spriteBobbing) {
+      if (this.velocity.x != 0 || this.velocity.y != 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
+        let height = Math.sin(bobbingCurve / 4)
+        position = new V(position.x, position.y - Math.round(height * 2.5) - 2.5)
+        bobbingCurve++
+      } else {
+        bobbingCurve = 0
+      }
+    }
+
+    ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
 

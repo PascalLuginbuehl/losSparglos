@@ -8,13 +8,15 @@ export default class Model {
   spriteSheet: HTMLImageElement
   spriteSheetPath: string
   isMovingSprite: boolean
+  spriteBobbing: boolean
 
-  constructor(hitbox: Hitbox, textureOrigin: V, textureSize: V, spriteSheetPath: string, isMovingSprite: boolean = false) {
+  constructor(hitbox: Hitbox, textureOrigin: V, textureSize: V, spriteSheetPath: string, isMovingSprite: boolean = false, spriteBobbing: boolean = false) {
     this.hitbox = hitbox
     this.textureSize = textureSize
     this.textureOrigin = textureOrigin
     this.spriteSheetPath = spriteSheetPath
     this.isMovingSprite = isMovingSprite
+    this.spriteBobbing = spriteBobbing
   }
 
 

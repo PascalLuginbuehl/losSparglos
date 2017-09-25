@@ -29,6 +29,7 @@ export default class Game {
         new V(32*24, 32*13),
         new V(32, 32),
         "images/entities.png",
+        true,
         true
       ),
 
@@ -57,7 +58,7 @@ export default class Game {
 
     this.player = this.entitiesMap[0]
 
-    this.mapSize = new V(500, 500)
+    this.mapSize = new V(10000, 10000)
 
     this.keys = {
       w: false,
