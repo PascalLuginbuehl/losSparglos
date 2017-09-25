@@ -3,6 +3,9 @@ import Render from "./core/Render"
 
 import './css/index.css'
 import './images/dirt.png'
+import './images/entities.png'
+import './images/blocks.png'
+import './images/props.png'
 
 
 const canvas = document.createElement('canvas')

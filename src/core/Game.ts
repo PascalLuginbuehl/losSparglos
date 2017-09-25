@@ -25,15 +25,18 @@ export default class Game {
   constructor() {
     this.models =  {
       "Player": new Model(
-        new Hitbox([new Rectangle(new V(0, 0), new V(16, 16))]),
-        "/dirt.png",
-        new V(16, 16)
+        new Hitbox([new Rectangle(new V(0, 0), new V(32, 32))]),
+        new V(32*24, 32*13),
+        new V(32, 32),
+        "images/entities.png",
+        true
       ),
 
      "dirt": new Model(
-        new Hitbox([new Rectangle(new V(0,0), new V(16,16))]),
-        "/dirt.png",
-        new V(16, 16)
+        new Hitbox([new Rectangle(new V(0,0), new V(32, 32))]),
+        new V(0, 0),
+        new V(32, 32),
+        "images/blocks.png"
       )
     }
 
@@ -47,7 +50,7 @@ export default class Game {
 
     this.blocksMap = [
       new Block(
-        new V(20,20),
+        new V(32,32),
         this.models["dirt"]
       )
     ]
@@ -62,7 +65,6 @@ export default class Game {
       s: false,
       d: false,
     }
-
 
     window.addEventListener('keydown', (e) => {
       if (this.keys.hasOwnProperty(e.key)) {
@@ -84,10 +86,9 @@ export default class Game {
       }
     })
 
-
     setInterval(this.gameLoop.bind(this), 16)
-
   }
+
 
   gameLoop() {
     let delay = 16 / 1000

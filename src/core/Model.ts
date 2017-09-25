@@ -2,28 +2,33 @@ import V from "./Vector"
 import Hitbox from "./Hitbox"
 
 export default class Model {
-  public hitbox: Hitbox
-  public texture: HTMLImageElement
-  public textureSize: V
-  public texturePath: string
+  hitbox: Hitbox
+  textureOrigin: V
+  textureSize: V
+  spriteSheet: HTMLImageElement
+  spriteSheetPath: string
+  isMovingSprite: boolean
 
-  constructor(hitbox: Hitbox, texturePath: string, textureSize: V) {
+  constructor(hitbox: Hitbox, textureOrigin: V, textureSize: V, spriteSheetPath: string, isMovingSprite: boolean = false) {
     this.hitbox = hitbox
     this.textureSize = textureSize
-    this.texturePath = texturePath
+    this.textureOrigin = textureOrigin
+    this.spriteSheetPath = spriteSheetPath
+    this.isMovingSprite = isMovingSprite
   }
 
 
-  public checkCollision(origin: V, originHitbox: V, model: Model): boolean {
-    return this.hitbox.checkCollision(origin, originHitbox, model.hitbox);
+  checkCollision(origin: V, originHitbox: V, model: Model): boolean {
+    return this.hitbox.checkCollision(origin, originHitbox, model.hitbox)
   }
 
-  preloadImage(): Promise<void> {
-    this.texture = new Image();
-    this.texture.src = this.texturePath
+  preloadImage(): Promise<void>  {
+    let texture = new Image()
+    texture.src = this.spriteSheetPath
+    this.spriteSheet = texture
 
     return new Promise((resolve, reject) => {
-      this.texture.addEventListener('load', () => {
+      texture.addEventListener('load', () => {
         resolve()
       })
     })

@@ -6,14 +6,13 @@ export default class Render {
   canvas: HTMLCanvasElement
   mapCanvas: HTMLCanvasElement
   game: Game
-
+  masterSprite: HTMLImageElement
 
   constructor(canvas: HTMLCanvasElement, game: Game) {
     this.canvas = canvas
     const ctx = this.canvas.getContext('2d')
     this.ctx = ctx
     this.game = game
-
 
     canvas.width = document.documentElement.clientWidth
     canvas.height = document.documentElement.clientHeight

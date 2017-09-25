@@ -24,7 +24,10 @@ export default class Body {
 
 
   public render(ctx: CanvasRenderingContext2D): void {
-    ctx.drawImage(this.model.texture, 0, 0, this.model.texture.width, this.model.texture.height, Math.round(this.position.x), Math.round(this.position.y), this.model.textureSize.x, this.model.textureSize.y);
+    let textureOrigin = this.model.textureOrigin
+    let textureSize = this.model.textureSize
+
+    ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, this.position.x, this.position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
 
