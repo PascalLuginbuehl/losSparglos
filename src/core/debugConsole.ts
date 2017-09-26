@@ -1,4 +1,4 @@
-export default class debugConsole {
+export class debugConsole {
   masterElement: HTMLDivElement
 
   constructor() {

@@ -1,7 +1,7 @@
-import V from "./Vector"
-import Hitbox from "./Hitbox"
+import { V } from "./Vector"
+import { Hitbox } from "./Hitbox"
 
-export default class Model {
+export class Model {
   hitbox: Hitbox
   textureOrigin: V
   textureSize: V

@@ -1,6 +1,6 @@
-import V from "./Vector";
-import Hitbox from "./Hitbox";
-import Model from "./Model";
+import { V } from "./Vector";
+import { Hitbox } from "./Hitbox";
+import { Model } from "./Model";
 
 interface updatedValues {
   velocity: V;
@@ -8,7 +8,7 @@ interface updatedValues {
 }
 
 /** Body class with basic parameters for positon and hitbox, it also provides a function for cehcking collision */
-export default class Body {
+export class Body {
   public position: V;
   public model: Model;
 

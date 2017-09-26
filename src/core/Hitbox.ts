@@ -1,7 +1,7 @@
-import V from "./Vector";
-import Rectangle from "./Rectangle";
+import { V } from "./Vector";
+import { Rectangle } from "./Rectangle";
 
-export default class Hitbox {
+export class Hitbox {
   protected rectangles: Array<Rectangle>;
   public collisionBox: Rectangle;
 

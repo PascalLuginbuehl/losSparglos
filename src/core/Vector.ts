@@ -1,5 +1,5 @@
 /** Class representing a point. */
-export default class V {
+export class V {
   public x: number;
   public y: number;
 

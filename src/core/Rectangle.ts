@@ -1,7 +1,7 @@
-import V from "./Vector";
+import { V } from "./Vector";
 
 /** Rectangle class with relative position and size */
-export default class Rectangle {
+export class Rectangle {
   min: V;
   max: V;
 

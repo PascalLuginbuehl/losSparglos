@@ -1,12 +1,12 @@
-import Body from "./Body"
-import V from "./Vector"
-import Model from "./Model"
-import Rectangle from "./Rectangle"
-import Hitbox from "./Hitbox"
+import { Body } from "./Body"
+import { V } from "./Vector"
+import { Model } from "./Model"
+import { Rectangle } from "./Rectangle"
+import { Hitbox } from "./Hitbox"
 
 let bobbingCurve: number = 0
 
-export default class Entity extends Body {
+export class Entity extends Body {
   velocity: V
   force: V
   lastOffset: number
@@ -29,6 +29,7 @@ export default class Entity extends Body {
       textureOrigin = new V(textureOrigin.x + this.getSpriteOffset() * textureSize.x, textureOrigin.y)
     }
 
+    console.log(this.velocity)
     if (this.model.spriteBobbing) {
       if (this.velocity.x != 0 || this.velocity.y != 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
         let height = Math.sin(bobbingCurve / 4)

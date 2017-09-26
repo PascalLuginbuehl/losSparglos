@@ -1,12 +1,15 @@
-import V from "./Vector"
-import Block from "./Block"
-import Entity from "./Entity"
-import Body from "./Body"
-import Model from "./Model"
-import Hitbox from "./Hitbox"
-import Rectangle from "./Rectangle"
-import debugConsole from "./debugConsole"
+import { V } from "./Vector"
+import { Block } from "./Block"
+import { Entity } from "./Entity"
+import { Body } from "./Body"
+import { Model } from "./Model"
+import { Hitbox } from "./Hitbox"
+import { Rectangle } from "./Rectangle"
+import { debugConsole } from "./debugConsole"
 
+export interface configInterface {
+  entityFriction: number
+}
 
 interface Keys {
   w: boolean
@@ -15,7 +18,7 @@ interface Keys {
   d: boolean
 }
 
-export default class Game {
+export class Game {
   entitiesMap: Array<Entity>
   blocksMap: Array<Block>
   mapSize: V
@@ -102,7 +105,6 @@ export default class Game {
       if (entity) {
         let acceleration: V = entity.force.scale(1500)
         let friction: number = .91
-        // let friction: number = .92
 
         entity.velocity = entity.velocity.add(acceleration.scale(delay)).scale(friction).round()
 
@@ -134,6 +136,7 @@ export default class Game {
             }
           }
         }
+
 
         // sets new position or keeps last depending on collision
         if (new Rectangle(new V(0, 0), this.mapSize).checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))) {

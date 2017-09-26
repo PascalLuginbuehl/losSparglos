@@ -1,7 +1,7 @@
-import Game from "./Game"
-import debugConsole from "./debugConsole"
+import { Game } from "./Game"
+import { debugConsole } from "./debugConsole"
 
-export default class Render {
+export class Render {
   ctx: CanvasRenderingContext2D
   mapCtx: CanvasRenderingContext2D
   canvas: HTMLCanvasElement
