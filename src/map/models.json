@@ -1,0 +1,27 @@
+{
+  "Player": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 32, "y": 32}
+    }],
+    "textureOrigin": {"x": 24, "y": 13},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/entities.png",
+    "isMovingSprite": true,
+    "spriteBobbing": true
+  },
+
+  "dirt": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 32, "y": 32}
+    }],
+    "textureOrigin": {"x": 0, "y": 0},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  }
+}

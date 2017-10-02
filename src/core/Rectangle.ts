@@ -1,43 +1,41 @@
-import { V } from "./Vector";
+import { V, Vector } from "./Vector";
 
-/** Rectangle class with relative position and size */
-export class Rectangle {
-  min: V;
-  max: V;
+export interface RectangleInterace {
+  min: Vector | V,
+  max: Vector | V
+}
 
-  /**
-   * Creates a Rectangle from two vectors
-   * @param  {V}      min relative position of the rectangle
-   * @param  {V}      max size of the rectangle measured from first param
-   */
-  constructor(min: V, max: V) {
-    this.min = min;
-    this.max = max;
+export class Rectangle implements RectangleInterace {
+  min: V
+  max: V
+
+  constructor(min: V | RectangleInterace, max?: V) {
+    if (min instanceof V) {
+      this.min = min
+      this.max = max
+    } else {
+      let rect = min
+      this.min = new V(rect.min)
+      this.max = new V(rect.max)
+    }
   }
 
 
-  /**
-   * Checks collision between two rectangles
-   * @param  {V}         origin     origin of rectange provided as 3. param
-   * @param  {V}         originRect origin of own rectangle
-   * @param  {Rectangle} rect       Rectangle to check collision with
-   * @return {boolean}              wheater or wheater not they collided
-   */
-  public checkCollision(rect: Rectangle): boolean {
-    let rectMin = rect.min;
-    let thisMin = this.min;
+  checkCollision(rect: Rectangle): boolean {
+    let rectMin = rect.min
+    let thisMin = this.min
 
     if (thisMin.x < rectMin.x + rect.max.x && this.max.x + thisMin.x > rectMin.x && thisMin.y < rect.max.y + rectMin.y && this.max.y + thisMin.y > rectMin.y) {
-      return true;
+      return true
     }
 
-    return false;
+    return false
   }
 
 
-  public drawRectangle(origin: V, ctx: CanvasRenderingContext2D) {
+  drawRectangle(origin: V, ctx: CanvasRenderingContext2D) {
     ctx.fillRect(origin.x + this.min.x, origin.y + this.min.y, this.max.x, this.max.y)
     ctx.fillStyle = "rgba(0, 0, 0, .5)"
-    ctx.fill();
+    ctx.fill()
   }
 }

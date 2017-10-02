@@ -1,4 +1,4 @@
-import { Game, configInterface } from "./core/Game"
+import { Game, configInterface, configModelArray } from "./core/Game"
 import { Render } from "./core/Render"
 
 import './css/index.scss'
@@ -7,6 +7,8 @@ import './images/entities.png'
 import './images/blocks.png'
 import './images/background.png'
 import './images/props.png'
+
+import models from './map/models.json';
 
 
 const canvas = document.createElement('canvas')
@@ -18,8 +20,10 @@ declare global {
 }
 
 window.gameConfig = {
-  entityFriction: 1
+  entityFriction: 1,
+  drawHitbox: true
 }
 
-const game = new Game()
+
+const game = new Game(models)
 const render = new Render(canvas, game)

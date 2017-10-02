@@ -1,16 +1,27 @@
+export interface Vector {
+  x: number,
+  y: number,
+}
+
 /** Class representing a point. */
-export class V {
-  public x: number;
-  public y: number;
+export class V implements Vector {
+  x: number;
+  y: number;
 
   /**
    * Create a point.
    * @param {number} x - The x value.
    * @param {number} y - The y value.
    */
-  constructor (x: number, y?: number) {
-    this.x = Math.round(x * 10) / 10;
-    this.y = Math.round(y * 10) / 10;
+  constructor (x: number | Vector, y?: number) {
+    if (typeof x == "number") {
+      this.x = Math.round(x * 10) / 10;
+      this.y = Math.round(y * 10) / 10;
+    } else {
+      let vector = x
+      this.x = Math.round(vector.x * 10) / 10
+      this.y = Math.round(vector.y * 10) / 10
+    }
   }
 
   /**

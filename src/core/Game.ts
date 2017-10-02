@@ -1,21 +1,36 @@
-import { V } from "./Vector"
+import { V, Vector } from "./Vector"
 import { Block } from "./Block"
 import { Entity } from "./Entity"
 import { Body } from "./Body"
 import { Model } from "./Model"
 import { Hitbox } from "./Hitbox"
-import { Rectangle } from "./Rectangle"
+import { Rectangle, RectangleInterace } from "./Rectangle"
 import { debugConsole } from "./debugConsole"
 
 export interface configInterface {
-  entityFriction: number
+  entityFriction: number,
+  drawHitbox: boolean,
 }
+
 
 interface Keys {
   w: boolean
   a: boolean
   s: boolean
   d: boolean
+}
+
+
+
+export interface configModelArray {
+  [modelName: string]: {
+    Hitbox: Array<RectangleInterace>,
+    textureOrigin: Vector,
+    textureSize: Vector,
+    spriteSheetPath : string,
+    isMovingSprite?: boolean,
+    spriteBobbing?: boolean
+  }
 }
 
 export class Game {
@@ -26,25 +41,9 @@ export class Game {
   keys: Keys
   models: { [s: string]: Model }
 
-  constructor() {
-    this.models =  {
-      "Player": new Model(
-        new Hitbox([new Rectangle(new V(0, 0), new V(32, 32))]),
-        new V(32*24, 32*13),
-        new V(32, 32),
-        "images/entities.png",
-        true,
-        true
-      ),
-
-     "dirt": new Model(
-        new Hitbox([new Rectangle(new V(0,0), new V(32, 32))]),
-        new V(0, 0),
-        new V(32, 32),
-        "images/blocks.png"
-      )
-    }
-
+  constructor(configModelArray: configModelArray) {
+    this.models = {}
+    this.modelGenerator(configModelArray)
 
     this.entitiesMap = [
       new Entity(
@@ -93,6 +92,19 @@ export class Game {
 
 
     setInterval(this.gameLoop.bind(this), 16)
+  }
+
+  modelGenerator(configModelArray: configModelArray) {
+    for (let name in configModelArray) {
+      let blueprint = configModelArray[name]
+
+      this.models[name] = new Model(
+        new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
+        new V(blueprint.textureOrigin),
+        new V(blueprint.textureSize),
+        blueprint.spriteSheetPath
+      )
+    }
   }
 
 

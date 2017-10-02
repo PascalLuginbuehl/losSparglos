@@ -40,6 +40,10 @@ export class Entity extends Body {
       }
     }
 
+    if (window.gameConfig.drawHitbox) {
+      this.model.hitbox.drawHitbox(this.position, ctx)
+    }
+      
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
