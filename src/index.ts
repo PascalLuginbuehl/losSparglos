@@ -22,12 +22,9 @@ declare global {
 }
 
 window.gameConfig = {
-  entityFriction: 1,
-
-  
+  entityFriction: .91,
+  entityAcceleration: 1500,
   drawHitbox: true,
-
-
 }
 
 

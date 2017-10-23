@@ -10,6 +10,7 @@ import { debugConsole } from "./debugConsole"
 export interface configInterface {
   entityFriction: number,
   drawHitbox: boolean,
+  entityAcceleration: number,
 }
 
 
@@ -81,7 +82,7 @@ export class Game {
 
     window.addEventListener('keydown', (e) => {
       if (this.keys.hasOwnProperty(e.key)) {
-        this.keys[e.key] = true
+        this.keys[e.key.toLowerCase()] = true
 
         this.player.force = this.getVectorFromKeys(this.keys)
 
@@ -91,7 +92,7 @@ export class Game {
 
     window.addEventListener('keyup', (e) => {
       if (this.keys.hasOwnProperty(e.key)) {
-        this.keys[e.key] = false
+        this.keys[e.key.toLowerCase()] = false
 
         this.player.force = this.getVectorFromKeys(this.keys)
 
@@ -159,8 +160,9 @@ export class Game {
     for (let i = 0; i < this.entitiesMap.length; i++) {
       let entity: Entity = this.entitiesMap[i]
       if (entity) {
-        let acceleration: V = entity.force.scale(1500)
-        let friction: number = .91
+        let acceleration: V = entity.force.scale(window.gameConfig.entityAcceleration)
+
+        let friction: number = window.gameConfig.entityFriction
 
         entity.velocity = entity.velocity.add(acceleration.scale(delay)).scale(friction).round()
 
