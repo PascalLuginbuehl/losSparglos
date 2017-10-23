@@ -53,6 +53,10 @@ export class Render {
     debug.addCheckbox("lol", (e) => {
       console.log(e)
     })
+
+    debug.addNumber("lol", (e) => {
+      console.log(e)
+    })
   }
 
   private renderLoop(): void {

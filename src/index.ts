@@ -23,7 +23,11 @@ declare global {
 
 window.gameConfig = {
   entityFriction: 1,
-  drawHitbox: true
+
+  
+  drawHitbox: true,
+
+
 }
 
 
