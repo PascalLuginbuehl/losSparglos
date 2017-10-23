@@ -45,7 +45,7 @@ export class Entity extends Body {
         bobbingCurve = 0
       }
     }
-    console.log( textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
+    // console.log( textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 

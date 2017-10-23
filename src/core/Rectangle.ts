@@ -34,8 +34,8 @@ export class Rectangle implements RectangleInterace {
 
 
   drawRectangle(origin: V, ctx: CanvasRenderingContext2D) {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.4)"
     ctx.fillRect(origin.x + this.min.x, origin.y + this.min.y, this.max.x, this.max.y)
-    ctx.fillStyle = "rgba(0, 0, 0, .5)"
     ctx.fill()
   }
 }

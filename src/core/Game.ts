@@ -54,14 +54,19 @@ export class Game {
     this.models = {}
     this.modelGenerator(configModelArray)
 
-    this.entitiesMap = [
-      new Entity(
-        new V(0,0),
-        this.models["Player"]
-      )
-    ]
+    this.entitiesMap = []
 
     this.blockGenerator(configBlockArray)
+
+    configBlockArray.blocks.map((e) => {
+      if (e.type == "spawnPoint") {
+        this.entitiesMap.push(
+          new Entity(
+          new V(e.position),
+          this.models["Player"]
+        ))
+      }
+    })
 
     this.player = this.entitiesMap[0]
 
@@ -98,7 +103,7 @@ export class Game {
     setInterval(this.gameLoop.bind(this), 16)
   }
 
-  modelGenerator(configModelArray: configModelArray) {
+  modelGenerator(configModelArray: configModelArray): void {
     for (let name in configModelArray) {
       let blueprint = configModelArray[name]
 
@@ -124,12 +129,14 @@ export class Game {
         new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
         new V(blueprint.textureOrigin),
         new V(blueprint.textureSize),
-        blueprint.spriteSheetPath
+        blueprint.spriteSheetPath,
+        blueprint.isMovingSprite,
+        blueprint.spriteBobbing
       )
     }
   }
 
-  blockGenerator(configBlockArray: configBlockArray) {
+  blockGenerator(configBlockArray: configBlockArray): void {
     this.blocksMap = []
     let blocks = configBlockArray.blocks
 
@@ -138,7 +145,9 @@ export class Game {
       block.position.x *= 32
       block.position.y *= 32
 
-      this.blocksMap.push(new Block(new V(block.position), this.models[block.type]))
+      if (block.type != "spawnPoint") {
+        this.blocksMap.push(new Block(new V(block.position), this.models[block.type]))
+      }
     }
   }
 
