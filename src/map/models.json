@@ -6,7 +6,7 @@
       "max":
         {"x": 1, "y": 1}
     }],
-    "textureOrigin": {"x": 0.6, "y": 1},
+    "textureOrigin": {"x": 24, "y": 13},
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/entities.png",
     "isMovingSprite": true,
@@ -42,6 +42,17 @@
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   },
+   "brick_brown_wall_side": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 9, "y": 8},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
    "brick_brown_wall_corner_down_right": {
     "Hitbox": [{
       "min":
@@ -52,5 +63,60 @@
     "textureOrigin": {"x": 10, "y": 9},
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
+  },
+  "brick_brown_wall_corner_down_left": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 11, "y": 9},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+   "brick_brown_wall_corner_up_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 10, "y": 8},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "brick_brown_wall_corner_up_left": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 11, "y": 8},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_wall_side": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 15, "y": 13},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "truck": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 2, "y": 8}
+    }],
+    "textureOrigin": {"x": 3, "y": 0},
+    "textureSize": {"x": 2, "y": 7.5},
+    "spriteSheetPath" : "images/entities.png"
   }
 }
