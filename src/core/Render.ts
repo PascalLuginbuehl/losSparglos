@@ -50,12 +50,16 @@ export class Render {
     })
 
     let debug = new debugConsole()
-    debug.addCheckbox("lol", (e) => {
-      console.log(e)
+    debug.addCheckbox("Hitbox", window.gameConfig.drawHitbox, (e) => {
+      window.gameConfig.drawHitbox = e
     })
 
-    debug.addNumber("lol", (e) => {
-      console.log(e)
+    debug.addNumber("Acceleration", window.gameConfig.entityAcceleration, (e) => {
+      window.gameConfig.entityAcceleration = e
+    })
+
+    debug.addNumber("Fritiction", window.gameConfig.entityFriction, (e) => {
+      window.gameConfig.entityFriction = e
     })
   }
 

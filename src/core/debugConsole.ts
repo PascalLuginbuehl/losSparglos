@@ -9,16 +9,17 @@ export class debugConsole {
 
   }
 
-  addNumber(title: string, callback: Function): void {
+  addNumber(title: string, value: number, callback: Function): void {
     let container = document.createElement('div')
     let label = document.createElement('label')
     let number = document.createElement('input')
     label.innerText = title
 
     number.type = "number"
+    number.value = value + ""
 
     number.addEventListener('change', () => {
-      callback(number.value)
+      callback(parseFloat(number.value))
     })
 
 
@@ -27,13 +28,14 @@ export class debugConsole {
     this.masterElement.appendChild(container)
   }
 
-  addCheckbox(title: string, callback: Function): void {
+  addCheckbox(title: string, value: boolean, callback: Function): void {
     let container = document.createElement('div')
     let label = document.createElement('label')
     let checkbox = document.createElement('input')
     label.innerText = title
 
     checkbox.type = "checkbox"
+    checkbox.checked = value
 
     checkbox.addEventListener('change', () => {
       callback(checkbox.checked)
