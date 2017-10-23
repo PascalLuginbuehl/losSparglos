@@ -124,7 +124,9 @@ export class Game {
         new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
         new V(blueprint.textureOrigin),
         new V(blueprint.textureSize),
-        blueprint.spriteSheetPath
+        blueprint.spriteSheetPath,
+        blueprint.isMovingSprite,
+        blueprint.spriteBobbing
       )
     }
   }

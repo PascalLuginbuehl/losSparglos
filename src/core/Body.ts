@@ -27,6 +27,7 @@ export class Body {
     let textureOrigin = this.model.textureOrigin
     let textureSize = this.model.textureSize
 
+
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, this.position.x, this.position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
