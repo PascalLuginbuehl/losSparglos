@@ -102,6 +102,24 @@ export class Game {
     for (let name in configModelArray) {
       let blueprint = configModelArray[name]
 
+      blueprint.textureSize.x *= 32
+      blueprint.textureSize.y *= 32
+      blueprint.textureOrigin.x *= 32
+      blueprint.textureOrigin.y *= 32
+
+      blueprint.Hitbox = blueprint.Hitbox.map((e) => {
+        return {
+          min: {
+            x: e.min.x * 32,
+            y: e.min.y * 32
+          },
+          max: {
+            x: e.max.x * 32,
+            y: e.max.y * 32
+          }
+        }
+      })
+
       this.models[name] = new Model(
         new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
         new V(blueprint.textureOrigin),
@@ -116,7 +134,11 @@ export class Game {
     let blocks = configBlockArray.blocks
 
     for (let i = 0; i < blocks.length; i++) {
-      this.blocksMap.push(new Block(new V(blocks[i].position), this.models[blocks[i].type]))
+      let block = blocks[i]
+      block.position.x *= 32
+      block.position.y *= 32
+
+      this.blocksMap.push(new Block(new V(block.position), this.models[block.type]))
     }
   }
 
