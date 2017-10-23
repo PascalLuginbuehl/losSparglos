@@ -1,8 +1,20 @@
 {
   "blocks": [
     {
-      "position": {"x": 64, "y": 64},
-      "type": "dirt"
+      "position": {"x": 15, "y": 15},
+      "type": "brick_brown_wall_down"
+    },
+	{
+      "position": {"x": 15, "y": 16},
+      "type": "brick_brown_wall_down"
+    },
+	{
+      "position": {"x": 15, "y": 17},
+      "type": "brick_brown_wall_corner_down_right"
+    },
+	{
+      "position": {"x": 15, "y": 18},
+      "type": "concrete_flooring_rough_5_2"
     }
   ]
 }

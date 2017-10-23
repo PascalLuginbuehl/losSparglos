@@ -4,24 +4,53 @@
       "min":
         {"x": 0, "y": 0},
       "max":
-        {"x": 32, "y": 32}
+        {"x": 1, "y": 1}
     }],
-    "textureOrigin": {"x": 24, "y": 13},
-    "textureSize": {"x": 32, "y": 32},
+    "textureOrigin": {"x": 0.6, "y": 1},
+    "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/entities.png",
     "isMovingSprite": true,
     "spriteBobbing": true
   },
 
-  "dirt": {
+  "concrete_flooring_rough_1_1": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 20, "y": 4},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "concrete_flooring_rough_2_2": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 20, "y": 4},
+    "textureSize": {"x": 2, "y": 2},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "concrete_flooring_rough_5_2": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 20, "y": 4},
+    "textureSize": {"x": 5, "y": 2},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+   "brick_brown_wall_down": {
     "Hitbox": [{
       "min":
         {"x": 0, "y": 0},
       "max":
-        {"x": 32, "y": 32}
+        {"x": 1, "y": 1}
     }],
-    "textureOrigin": {"x": 0, "y": 0},
-    "textureSize": {"x": 32, "y": 32},
+    "textureOrigin": {"x": 8, "y": 8},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+   "brick_brown_wall_corner_down_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 10, "y": 9},
+    "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   }
 }
