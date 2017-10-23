@@ -9,7 +9,9 @@ import './images/background.png'
 import './images/props.png'
 
 import models from './map/models.json';
+import map1 from './map/map1.json';
 
+console.log(map1)
 
 const canvas = document.createElement('canvas')
 document.body.appendChild(canvas)
@@ -25,5 +27,5 @@ window.gameConfig = {
 }
 
 
-const game = new Game(models)
+const game = new Game(models, map1)
 const render = new Render(canvas, game)

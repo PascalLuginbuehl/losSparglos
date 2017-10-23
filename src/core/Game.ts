@@ -33,6 +33,15 @@ export interface configModelArray {
   }
 }
 
+export interface configBlock {
+  position: Vector,
+  type: string
+}
+
+export interface configBlockArray {
+  blocks: Array<configBlock>
+}
+
 export class Game {
   entitiesMap: Array<Entity>
   blocksMap: Array<Block>
@@ -41,7 +50,7 @@ export class Game {
   keys: Keys
   models: { [s: string]: Model }
 
-  constructor(configModelArray: configModelArray) {
+  constructor(configModelArray: configModelArray, configBlockArray: configBlockArray) {
     this.models = {}
     this.modelGenerator(configModelArray)
 
@@ -52,12 +61,7 @@ export class Game {
       )
     ]
 
-    this.blocksMap = [
-      new Block(
-        new V(32,32),
-        this.models["dirt"]
-      )
-    ]
+    this.blockGenerator(configBlockArray)
 
     this.player = this.entitiesMap[0]
 
@@ -104,6 +108,15 @@ export class Game {
         new V(blueprint.textureSize),
         blueprint.spriteSheetPath
       )
+    }
+  }
+
+  blockGenerator(configBlockArray: configBlockArray) {
+    this.blocksMap = []
+    let blocks = configBlockArray.blocks
+
+    for (let i = 0; i < blocks.length; i++) {
+      this.blocksMap.push(new Block(new V(blocks[i].position), this.models[blocks[i].type]))
     }
   }
 

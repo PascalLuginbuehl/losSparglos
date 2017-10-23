@@ -25,11 +25,17 @@ export class Entity extends Body {
     let textureSize = this.model.textureSize
     let position = this.position
 
+
+    if (window.gameConfig.drawHitbox) {
+      this.model.hitbox.drawHitbox(this.position, ctx)
+    }
+
+
     if (this.model.isMovingSprite) {
       textureOrigin = new V(textureOrigin.x + this.getSpriteOffset() * textureSize.x, textureOrigin.y)
     }
 
-    console.log(this.velocity)
+    // console.log(this.velocity)
     if (this.model.spriteBobbing) {
       if (this.velocity.x != 0 || this.velocity.y != 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
         let height = Math.sin(bobbingCurve / 4)
@@ -39,11 +45,7 @@ export class Entity extends Body {
         bobbingCurve = 0
       }
     }
-
-    if (window.gameConfig.drawHitbox) {
-      this.model.hitbox.drawHitbox(this.position, ctx)
-    }
-      
+    console.log( textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
