@@ -75,8 +75,10 @@ export default class Game {
     })
 
     window.addEventListener('keyup', (e) => {
-      if (this.keys.hasOwnProperty(e.key)) {
-        this.keys[e.key] = false
+      let key = e.key.toLowerCase()
+
+      if (this.keys.hasOwnProperty(key)) {
+        this.keys[key] = false
 
         this.player.force = this.getVectorFromKeys(this.keys)
 

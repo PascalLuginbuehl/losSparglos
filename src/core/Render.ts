@@ -1,4 +1,5 @@
 import Game from "./Game"
+import V from "./Vector"
 
 export default class Render {
   ctx: CanvasRenderingContext2D
@@ -29,6 +30,36 @@ export default class Render {
 
     this.mapCtx = this.mapCanvas.getContext('2d')
 
+    const MULTI = 20
+    // Collision detection test
+    let V1 = new V(7 , 2)
+    let V2 = new V(1, 7)
+    let P = new V(2, 2)
+
+    ctx.fillStyle = "#FF0000"
+    ctx.fillRect(P.x * MULTI,P.y * MULTI,1,1)
+
+    ctx.fillStyle = "#000000"
+    ctx.beginPath()
+    ctx.moveTo(V1.x * MULTI,V1.y * MULTI)
+    ctx.lineTo(V2.x * MULTI,V2.y * MULTI)
+    ctx.stroke()
+
+
+
+    let n = new V((V2.subtract(V1).x / V2.subtract(V1).y)  * -1, (V2.subtract(V1).y / V2.subtract(V1).x))
+    let result = new V(n.y * (P.subtract(V1).x / P.subtract(V1).y), n.x * (P.subtract(V1).x / P.subtract(V1).y))
+    // let result = new V(
+    //   1 / V1.subtract(V2).y * V1.subtract(V2).x * P.subtract(V1).y,
+    //   1 / V1.subtract(V2).x * V1.subtract(V2).y * P.subtract(V1).x,
+    // )
+
+    console.log(result)
+
+
+    ctx.fillStyle = "#FF0000"
+    ctx.fillRect(result.add(P).x * MULTI, result.add(P).y * MULTI,1,1)
+
 
     // Preload images images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
@@ -40,7 +71,7 @@ export default class Render {
         this.game.blocksMap[i].render(this.mapCtx);
       }
 
-      setInterval(this.renderLoop.bind(this), 16)
+      // setInterval(this.renderLoop.bind(this), 16)
     })
   }
 

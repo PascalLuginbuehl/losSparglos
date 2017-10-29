@@ -9,8 +9,8 @@ export default class V {
    * @param {number} y - The y value.
    */
   constructor (x: number, y?: number) {
-    this.x = Math.round(x * 10) / 10;
-    this.y = Math.round(y * 10) / 10;
+    this.x = x;
+    this.y = y;
   }
 
   /**
@@ -19,7 +19,7 @@ export default class V {
    * @return {V}        new Vector with result
    */
   add(vector: V): V {
-    return new V(Math.round((vector.x + this.x) * 10) / 10, Math.round((vector.y + this.y) * 10) / 10);
+    return new V((vector.x + this.x), (vector.y + this.y));
   }
 
   /**
@@ -28,7 +28,7 @@ export default class V {
    * @return {V}        new Vector with result
    */
   subtract(vector: V): V {
-    return new V(Math.round((this.x - vector.x) * 10) / 10, Math.round((this.y - vector.y) * 10) / 10);
+    return new V((this.x - vector.x), (this.y - vector.y));
   }
 
   /**
@@ -37,7 +37,7 @@ export default class V {
    * @return {V}        [description]
    */
   scale(s: number): V {
-    return new V(Math.round((this.x * s) * 10) / 10 , Math.round((this.y * s) * 10) / 10);
+    return new V((this.x * s), (this.y * s));
   }
 
   /**
