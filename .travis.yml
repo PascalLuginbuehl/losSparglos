@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "node"
 before_install:
-  - npm i -g tsc babel nyc
+  - npm i -g tsc babel-cli nyc
 cache:
   directories:
     - "node_modules"
