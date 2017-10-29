@@ -1,19 +1,19 @@
-const Rectangle = require('./../src/core/Rectangle').Rectangle
-, V = require('./../src/core/Vector').V
-, Hitbox = require('./../src/core/Hitbox').Hitbox
-, Body = require('./../src/core/Hitbox').Body
-, Model = require('./../src/core/Hitbox').Model
-, Entity = require('./../src/core/Hitbox').Entity
-  , Block = require('./../src/core/Hitbox').Block
+import {Rectangle} from './../src/core/Rectangle'
+import {V} from './../src/core/Vector'
+import {Hitbox} from './../src/core/Hitbox'
+import {Body} from './../src/core/Body'
+import {Model} from './../src/core/Model'
+import {Entity} from './../src/core/Entity'
+import {Block} from './../src/core/Block'
 /**
  * Module dependencies.
  */
-require('chai')
-
+// let chai = require('chai')
+import * as chai from "chai"
 /**
  * Globals
  */
-var expect = chai.expect;
+var expect = chai.expect
 
 
 /**

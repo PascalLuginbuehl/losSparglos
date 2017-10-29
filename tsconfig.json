@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "target": "es5",
-    "externalTranspiler": "babel"
+    "target": "es6"
   }
 }
