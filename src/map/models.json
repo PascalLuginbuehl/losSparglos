@@ -141,6 +141,17 @@
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   },
+  "roof_dark_wall_side_up": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 16, "y": 12},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
   "roof_dark_wall_corner_down_left": {
     "Hitbox": [{
       "min":
@@ -163,6 +174,17 @@
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   },
+  "brick_brown_wall_corner_up_right_out": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 15, "y": 12},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
    "roof_dark_wall_corner_up_right": {
     "Hitbox": [{
       "min":
@@ -171,6 +193,35 @@
         {"x": 1, "y": 1}
     }],
     "textureOrigin": {"x": 16, "y": 14},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+   "roof_dark_wall_corner_up_left": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 17, "y": 12},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_large_vent": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 18, "y": 12},
+    "textureSize": {"x": 2, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_small_vent_1": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 18, "y": 15},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_small_vent_2": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 19, "y": 15},
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   },
@@ -206,5 +257,22 @@
     "textureOrigin": {"x": 3, "y": 0},
     "textureSize": {"x": 2, "y": 7.5},
     "spriteSheetPath" : "images/entities.png"
+  },
+  "tree_1": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 2, "y": 2}
+    }],
+    "textureOrigin": {"x": 2, "y": 28},
+    "textureSize": {"x": 2, "y": 2},
+    "spriteSheetPath" : "images/props.png"
+  },
+  "bush_1": {
+    "Hitbox": [],
+    "textureOrigin": {"x": 6, "y": 29},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/props.png"
   }
 }
