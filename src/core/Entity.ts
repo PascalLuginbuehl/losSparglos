@@ -4,18 +4,20 @@ import { Model } from "./Model"
 import { Rectangle } from "./Rectangle"
 import { V } from "./Vector"
 
-let bobbingCurve: number = 0
-
 export class Entity extends Body {
   velocity: V
   force: V
   lastOffset: number
+  spriteBobbingCurve: number
+  lastMovingDirection: V
 
   constructor(position: V, model: Model, force: V = new V(0, 0), velocity: V = new V(0, 0)) {
     super(position, model)
 
+    this.spriteBobbingCurve = 0
     this.velocity = velocity
     this.force = force
+    this.lastMovingDirection = new V(1, 0)
 
     this.lastOffset = 0
   }
@@ -34,12 +36,13 @@ export class Entity extends Body {
     }
 
     if (this.model.spriteBobbing) {
-      if (this.velocity.x !== 0 || this.velocity.y !== 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
-        let height = Math.sin(bobbingCurve / 4)
+
+      if (this.velocity.x !== 0 || this.velocity.y !== 0 || Math.sin(this.spriteBobbingCurve / 4) - 1 > -.95) {
+        let height = Math.sin(this.spriteBobbingCurve / 4)
         position = new V(position.x, position.y - Math.round(height * 2.5) - 2.5)
-        bobbingCurve++
+        this.spriteBobbingCurve++
       } else {
-        bobbingCurve = 0
+        this.spriteBobbingCurve = 0
       }
     }
 
@@ -59,6 +62,8 @@ export class Entity extends Body {
   getSpriteOffset(): number {
     let x = this.force.x
     let y = this.force.y
+
+
 
     let offset = this.lastOffset
 
