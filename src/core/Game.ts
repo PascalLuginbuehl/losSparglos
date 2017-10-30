@@ -1,43 +1,43 @@
 import { Block } from "./Block"
 import { Body } from "./Body"
-import { debugConsole } from "./debugConsole"
+import { DebugConsole } from "./DebugConsole"
 import { Entity } from "./Entity"
 import { Hitbox } from "./Hitbox"
 import { Model } from "./Model"
-import { Rectangle, RectangleInterace } from "./Rectangle"
-import { V, Vector } from "./Vector"
+import { IRectangleInterace, Rectangle } from "./Rectangle"
+import { IVector, V } from "./Vector"
 
-export interface configInterface {
+export interface IConfigInterface {
   entityFriction: number,
   drawHitbox: boolean,
   entityAcceleration: number,
 }
 
-interface Keys {
+interface IKeys {
   w: boolean
   a: boolean
   s: boolean
   d: boolean
 }
 
-export interface configModelArray {
+export interface IConfigModelArray {
   [modelName: string]: {
-    Hitbox: RectangleInterace[],
-    textureOrigin: Vector,
-    textureSize: Vector,
+    Hitbox: IRectangleInterace[],
+    textureOrigin: IVector,
+    textureSize: IVector,
     spriteSheetPath: string,
     isMovingSprite?: boolean,
     spriteBobbing?: boolean
   }
 }
 
-export interface configBlock {
-  position: Vector,
+export interface IConfigBlock {
+  position: IVector,
   type: string
 }
 
-export interface configBlockArray {
-  blocks: configBlock[]
+export interface IConfigBlockArray {
+  blocks: IConfigBlock[]
 }
 
 export class Game {
@@ -45,10 +45,10 @@ export class Game {
   blocksMap: Block[]
   mapSize: V
   player: Entity
-  keys: Keys
+  keys: IKeys
   models: { [s: string]: Model }
 
-  constructor(configModelArray: configModelArray, configBlockArray: configBlockArray) {
+  constructor(configModelArray: IConfigModelArray, configBlockArray: IConfigBlockArray) {
     this.models = {}
     this.modelGenerator(configModelArray)
 
@@ -57,7 +57,7 @@ export class Game {
     this.blockGenerator(configBlockArray)
 
     configBlockArray.blocks.map((e) => {
-      if (e.type == "spawnPoint") {
+      if (e.type === "spawnPoint") {
         this.entitiesMap.push(
           new Entity(
           new V(e.position),
@@ -100,40 +100,42 @@ export class Game {
     setInterval(this.gameLoop.bind(this), 16)
   }
 
-  modelGenerator(configModelArray: configModelArray): void {
+  modelGenerator(configModelArray: IConfigModelArray): void {
     for (let name in configModelArray) {
-      let blueprint = configModelArray[name]
+      if (configModelArray.hasOwnProperty(name)) {
+        let blueprint = configModelArray[name]
 
-      blueprint.textureSize.x *= 32
-      blueprint.textureSize.y *= 32
-      blueprint.textureOrigin.x *= 32
-      blueprint.textureOrigin.y *= 32
+        blueprint.textureSize.x *= 32
+        blueprint.textureSize.y *= 32
+        blueprint.textureOrigin.x *= 32
+        blueprint.textureOrigin.y *= 32
 
-      blueprint.Hitbox = blueprint.Hitbox.map((e) => {
-        return {
-          min: {
-            x: e.min.x * 32,
-            y: e.min.y * 32
-          },
-          max: {
-            x: e.max.x * 32,
-            y: e.max.y * 32
+        blueprint.Hitbox = blueprint.Hitbox.map((e) => {
+          return {
+            min: {
+              x: e.min.x * 32,
+              y: e.min.y * 32
+            },
+            max: {
+              x: e.max.x * 32,
+              y: e.max.y * 32
+            }
           }
-        }
-      })
+        })
 
-      this.models[name] = new Model(
-        new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
-        new V(blueprint.textureOrigin),
-        new V(blueprint.textureSize),
-        blueprint.spriteSheetPath,
-        blueprint.isMovingSprite,
-        blueprint.spriteBobbing
-      )
+        this.models[name] = new Model(
+          new Hitbox(blueprint.Hitbox.map((e) => new Rectangle(e))),
+          new V(blueprint.textureOrigin),
+          new V(blueprint.textureSize),
+          blueprint.spriteSheetPath,
+          blueprint.isMovingSprite,
+          blueprint.spriteBobbing
+        )
+      }
     }
   }
 
-  blockGenerator(configBlockArray: configBlockArray): void {
+  blockGenerator(configBlockArray: IConfigBlockArray): void {
     this.blocksMap = []
     let blocks = configBlockArray.blocks
 
@@ -142,7 +144,7 @@ export class Game {
       block.position.x *= 32
       block.position.y *= 32
 
-      if (block.type != "spawnPoint") {
+      if (block.type !== "spawnPoint") {
         this.blocksMap.push(new Block(new V(block.position), this.models[block.type]))
       }
     }
@@ -180,7 +182,7 @@ export class Game {
 
         for (let o = 0; o < this.entitiesMap.length; o++) {
           let entity2: Entity = this.entitiesMap[o]
-          if (entity2 && entity != entity2) {
+          if (entity2 && entity !== entity2) {
 
             // Collision detection
             if (entity.checkCollision(entity2, position)) {
@@ -190,7 +192,10 @@ export class Game {
         }
 
         // sets new position or keeps last depending on collision
-        if (new Rectangle(new V(0, 0), this.mapSize).checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))) {
+        if (
+          new Rectangle(new V(0, 0), this.mapSize)
+            .checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))
+        ) {
           if (collisions.length > 0) {
               let newPosition: V = new V(position.x, position.y)
               let newVelocity: V = new V(entity.velocity.x, entity.velocity.y)
@@ -213,7 +218,7 @@ export class Game {
     }
   }
 
-  getVectorFromKeys(keys: Keys): V {
+  getVectorFromKeys(keys: IKeys): V {
     let v = new V(0, 0)
 
     if (this.keys.w) {

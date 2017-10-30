@@ -10,7 +10,14 @@ export class Model {
   isMovingSprite: boolean
   spriteBobbing: boolean
 
-  constructor(hitbox: Hitbox, textureOrigin: V, textureSize: V, spriteSheetPath: string, isMovingSprite: boolean = false, spriteBobbing: boolean = false) {
+  constructor(
+    hitbox: Hitbox,
+    textureOrigin: V,
+    textureSize: V,
+    spriteSheetPath: string,
+    isMovingSprite: boolean = false,
+    spriteBobbing: boolean = false
+  ) {
     this.hitbox = hitbox
     this.textureSize = textureSize
     this.textureOrigin = textureOrigin

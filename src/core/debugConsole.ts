@@ -1,4 +1,4 @@
-export class debugConsole {
+export class DebugConsole {
   masterElement: HTMLDivElement
 
   constructor() {
@@ -9,25 +9,25 @@ export class debugConsole {
 
   }
 
-  addNumber(title: string, value: number, callback: Function): void {
+  addNumber(title: string, value: number, callback: (newNumber: number) => void): void {
     let container = document.createElement('div')
     let label = document.createElement('label')
-    let number = document.createElement('input')
+    let numberInput = document.createElement('input')
     label.innerText = title
 
-    number.type = "number"
-    number.value = value + ""
+    numberInput.type = "number"
+    numberInput.value = value + ""
 
-    number.addEventListener('change', () => {
-      callback(parseFloat(number.value))
+    numberInput.addEventListener('change', () => {
+      callback(parseFloat(numberInput.value))
     })
 
     container.appendChild(label)
-    container.appendChild(number)
+    container.appendChild(numberInput)
     this.masterElement.appendChild(container)
   }
 
-  addCheckbox(title: string, value: boolean, callback: Function): void {
+  addCheckbox(title: string, value: boolean, callback: (newBoolean: boolean) => void): void {
     let container = document.createElement('div')
     let label = document.createElement('label')
     let checkbox = document.createElement('input')

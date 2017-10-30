@@ -1,4 +1,4 @@
-import { debugConsole } from "./debugConsole"
+import { DebugConsole } from "./DebugConsole"
 import { Game } from "./Game"
 
 export class Render {
@@ -49,7 +49,7 @@ export class Render {
       })
     })
 
-    let debug = new debugConsole()
+    let debug = new DebugConsole()
     debug.addCheckbox("Hitbox", window.gameConfig.drawHitbox, (e) => {
       window.gameConfig.drawHitbox = e
     })
