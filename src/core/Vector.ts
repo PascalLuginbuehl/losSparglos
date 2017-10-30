@@ -5,18 +5,18 @@ export interface Vector {
 
 /** Class representing a point. */
 export class V implements Vector {
-  x: number;
-  y: number;
+  x: number
+  y: number
 
   /**
    * Create a point.
    * @param {number} x - The x value.
    * @param {number} y - The y value.
    */
-  constructor (x: number | Vector, y?: number) {
+  constructor(x: number | Vector, y?: number) {
     if (typeof x == "number") {
-      this.x = Math.round(x * 10) / 10;
-      this.y = Math.round(y * 10) / 10;
+      this.x = Math.round(x * 10) / 10
+      this.y = Math.round(y * 10) / 10
     } else {
       let vector = x
       this.x = Math.round(vector.x * 10) / 10
@@ -30,7 +30,7 @@ export class V implements Vector {
    * @return {V}        new Vector with result
    */
   add(vector: V): V {
-    return new V(Math.round((vector.x + this.x) * 10) / 10, Math.round((vector.y + this.y) * 10) / 10);
+    return new V(Math.round((vector.x + this.x) * 10) / 10, Math.round((vector.y + this.y) * 10) / 10)
   }
 
   /**
@@ -39,7 +39,7 @@ export class V implements Vector {
    * @return {V}        new Vector with result
    */
   subtract(vector: V): V {
-    return new V(Math.round((this.x - vector.x) * 10) / 10, Math.round((this.y - vector.y) * 10) / 10);
+    return new V(Math.round((this.x - vector.x) * 10) / 10, Math.round((this.y - vector.y) * 10) / 10)
   }
 
   /**
@@ -48,7 +48,7 @@ export class V implements Vector {
    * @return {V}        [description]
    */
   scale(s: number): V {
-    return new V(Math.round((this.x * s) * 10) / 10 , Math.round((this.y * s) * 10) / 10);
+    return new V(Math.round((this.x * s) * 10) / 10 , Math.round((this.y * s) * 10) / 10)
   }
 
   /**
@@ -57,9 +57,8 @@ export class V implements Vector {
    * @return {number}        the dot product
    */
   dot(vector: V): number {
-    return (this.x * vector.x + this.y * vector.y);
+    return (this.x * vector.x + this.y * vector.y)
   }
-
 
   /**
    * returns the cross product of both vetors
@@ -67,7 +66,7 @@ export class V implements Vector {
    * @return {number}        the cross product
    */
   cross(vector: V) {
-    return (this.x * vector.y - this.y * vector.x);
+    return (this.x * vector.y - this.y * vector.x)
   }
 
   /**
@@ -77,10 +76,9 @@ export class V implements Vector {
    */
   smalest(vector: V): V {
     let x = this.x < vector.x ? this.x : vector.x
-      , y = this.y < vector.y ? this.y : vector.y;
-    return new V(x, y);
+      , y = this.y < vector.y ? this.y : vector.y
+    return new V(x, y)
   }
-
 
   /**
    * returns the smalest values of both vectors
@@ -89,8 +87,8 @@ export class V implements Vector {
    */
   biggest(vector: V): V {
     let x = this.x > vector.x ? this.x : vector.x
-      , y = this.y > vector.y ? this.y : vector.y;
-    return new V(x, y);
+      , y = this.y > vector.y ? this.y : vector.y
+    return new V(x, y)
   }
 
   /**
@@ -101,22 +99,20 @@ export class V implements Vector {
    * @return {V}             the roated vector
    */
   rotate(angle: number, vector: V): V {
-    let x = this.x - vector.x;
-    let y = this.y - vector.y;
+    let x = this.x - vector.x
+    let y = this.y - vector.y
 
-    let x_prime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)));
-    let y_prime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)));
+    let x_prime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)))
+    let y_prime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)))
 
-    return new V(x_prime, y_prime);
+    return new V(x_prime, y_prime)
   }
-
 
   public round(): V {
-    return new V(this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x), this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y));
+    return new V(this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x), this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y))
   }
 
-
   public equal(v: V): boolean {
-    return (this.x == v.x && this.y == v.y);
+    return (this.x == v.x && this.y == v.y)
   }
 }

@@ -1,16 +1,14 @@
-import { V } from "./Vector";
-import { Rectangle } from "./Rectangle";
+import { Rectangle } from "./Rectangle"
+import { V } from "./Vector"
 
 export class Hitbox {
-  protected rectangles: Array<Rectangle>
+  protected rectangles: Rectangle[]
   public collisionBox: Rectangle
 
-
-  constructor(rectangles: Array<Rectangle>) {
-    this.rectangles = rectangles;
+  constructor(rectangles: Rectangle[]) {
+    this.rectangles = rectangles
     this.collisionBox = this.getCollisionBox()
   }
-
 
   checkCollision(origin: V, originHitbox: V, hitbox: Hitbox): boolean {
     // unaccurate collisiondetection for performence reasons
@@ -36,7 +34,6 @@ export class Hitbox {
     return false
   }
 
-
   getCollisionBox(): Rectangle {
     let max = new V(0, 0)
 
@@ -46,7 +43,7 @@ export class Hitbox {
       max = max.biggest(hitbox.min.add(hitbox.max))
     }
 
-    let min = new V(max.x, max.y);
+    let min = new V(max.x, max.y)
 
     for (let i = 0; i < this.rectangles.length; i++) {
       min = min.smalest(this.rectangles[i].min)
@@ -54,7 +51,6 @@ export class Hitbox {
 
     return new Rectangle(min, max)
   }
-
 
   public drawHitbox(origin: V, ctx: CanvasRenderingContext2D) {
     for (let i = 0; i < this.rectangles.length; i++) {

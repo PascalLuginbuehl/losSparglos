@@ -1,12 +1,12 @@
-import { Body } from "./Body";
-import { Model } from "./Model";
-import { V } from "./Vector";
+import { Body } from "./Body"
+import { Model } from "./Model"
+import { V } from "./Vector"
 
 export class Block extends Body {
-  public collision: boolean;
+  public collision: boolean
 
   constructor(position: V, model: Model, collision: boolean = true) {
-    super(position, model);
-    this.collision = collision;
+    super(position, model)
+    this.collision = collision
   }
 }

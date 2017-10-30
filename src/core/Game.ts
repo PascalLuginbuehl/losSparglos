@@ -1,18 +1,17 @@
-import { V, Vector } from "./Vector"
 import { Block } from "./Block"
-import { Entity } from "./Entity"
 import { Body } from "./Body"
-import { Model } from "./Model"
-import { Hitbox } from "./Hitbox"
-import { Rectangle, RectangleInterace } from "./Rectangle"
 import { debugConsole } from "./debugConsole"
+import { Entity } from "./Entity"
+import { Hitbox } from "./Hitbox"
+import { Model } from "./Model"
+import { Rectangle, RectangleInterace } from "./Rectangle"
+import { V, Vector } from "./Vector"
 
 export interface configInterface {
   entityFriction: number,
   drawHitbox: boolean,
   entityAcceleration: number,
 }
-
 
 interface Keys {
   w: boolean
@@ -21,14 +20,12 @@ interface Keys {
   d: boolean
 }
 
-
-
 export interface configModelArray {
   [modelName: string]: {
-    Hitbox: Array<RectangleInterace>,
+    Hitbox: RectangleInterace[],
     textureOrigin: Vector,
     textureSize: Vector,
-    spriteSheetPath : string,
+    spriteSheetPath: string,
     isMovingSprite?: boolean,
     spriteBobbing?: boolean
   }
@@ -40,12 +37,12 @@ export interface configBlock {
 }
 
 export interface configBlockArray {
-  blocks: Array<configBlock>
+  blocks: configBlock[]
 }
 
 export class Game {
-  entitiesMap: Array<Entity>
-  blocksMap: Array<Block>
+  entitiesMap: Entity[]
+  blocksMap: Block[]
   mapSize: V
   player: Entity
   keys: Keys
@@ -64,7 +61,7 @@ export class Game {
         this.entitiesMap.push(
           new Entity(
           new V(e.position),
-          this.models["Player"]
+          this.models.Player
         ))
       }
     })
@@ -99,7 +96,6 @@ export class Game {
         e.preventDefault()
       }
     })
-
 
     setInterval(this.gameLoop.bind(this), 16)
   }
@@ -152,10 +148,8 @@ export class Game {
     }
   }
 
-
   gameLoop() {
     let delay = 16 / 1000
-
 
     for (let i = 0; i < this.entitiesMap.length; i++) {
       let entity: Entity = this.entitiesMap[i]
@@ -169,7 +163,7 @@ export class Game {
         // new position (now check for collision)
         let position: V = entity.position.add(entity.velocity.scale(delay))
 
-        let collisions: Array<Body> = []
+        let collisions: Body[] = []
 
         for (let o = 0; o < this.blocksMap.length; o++) {
           let block: Block = this.blocksMap[o]
@@ -194,7 +188,6 @@ export class Game {
             }
           }
         }
-
 
         // sets new position or keeps last depending on collision
         if (new Rectangle(new V(0, 0), this.mapSize).checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))) {

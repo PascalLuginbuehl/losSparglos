@@ -1,8 +1,8 @@
 import { Body } from "./Body"
-import { V } from "./Vector"
+import { Hitbox } from "./Hitbox"
 import { Model } from "./Model"
 import { Rectangle } from "./Rectangle"
-import { Hitbox } from "./Hitbox"
+import { V } from "./Vector"
 
 let bobbingCurve: number = 0
 
@@ -25,11 +25,9 @@ export class Entity extends Body {
     let textureSize = this.model.textureSize
     let position = this.position
 
-
     if (window.gameConfig.drawHitbox) {
       this.model.hitbox.drawHitbox(this.position, ctx)
     }
-
 
     if (this.model.isMovingSprite) {
       textureOrigin = new V(textureOrigin.x + this.getSpriteOffset() * textureSize.x, textureOrigin.y)
@@ -49,20 +47,19 @@ export class Entity extends Body {
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
-
   getSpriteOffset(): number {
     let x = this.force.x
       , y = this.force.y
 
     let offset = this.lastOffset
 
-    if(x > 0) {
+    if (x > 0) {
       offset = 3
-    } else if(x < 0) {
+    } else if (x < 0) {
       offset = 2
-    } else if(y < 0) {
+    } else if (y < 0) {
       offset = 1
-    } else if(y > 0) {
+    } else if (y > 0) {
       offset = 0
     }
 

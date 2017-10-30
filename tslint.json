@@ -2,7 +2,7 @@
   "extends": "tslint:recommended",
   "rulesDirectory": ["src"],
   "rules": {
-    "semicolon": [false],
+    "semicolon": [true, "never"],
     "member-ordering": [false],
     "prefer-const": [false],
     "prefer-for-of": [false],

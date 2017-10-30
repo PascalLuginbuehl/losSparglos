@@ -1,15 +1,15 @@
-import { Game, configInterface, configModelArray } from "./core/Game"
+import { configInterface, configModelArray, Game } from "./core/Game"
 import { Render } from "./core/Render"
 
 import './css/index.scss'
+import './images/background.png'
+import './images/blocks.png'
 import './images/dirt.png'
 import './images/entities.png'
-import './images/blocks.png'
-import './images/background.png'
 import './images/props.png'
 
-import models from './map/models.json';
-import map1 from './map/map1.json';
+import map1 from './map/map1.json'
+import models from './map/models.json'
 
 console.log(map1)
 
@@ -26,7 +26,6 @@ window.gameConfig = {
   entityAcceleration: 1500,
   drawHitbox: true,
 }
-
 
 const game = new Game(models, map1)
 const render = new Render(canvas, game)

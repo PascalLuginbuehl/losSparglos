@@ -1,5 +1,5 @@
-import { V } from "./Vector"
 import { Hitbox } from "./Hitbox"
+import { V } from "./Vector"
 
 export class Model {
   hitbox: Hitbox
@@ -18,7 +18,6 @@ export class Model {
     this.isMovingSprite = isMovingSprite
     this.spriteBobbing = spriteBobbing
   }
-
 
   checkCollision(origin: V, originHitbox: V, model: Model): boolean {
     return this.hitbox.checkCollision(origin, originHitbox, model.hitbox)

@@ -1,4 +1,4 @@
-import { V, Vector } from "./Vector";
+import { V, Vector } from "./Vector"
 
 export interface RectangleInterace {
   min: Vector | V,
@@ -20,7 +20,6 @@ export class Rectangle implements RectangleInterace {
     }
   }
 
-
   checkCollision(rect: Rectangle): boolean {
     let rectMin = rect.min
     let thisMin = this.min
@@ -31,7 +30,6 @@ export class Rectangle implements RectangleInterace {
 
     return false
   }
-
 
   drawRectangle(origin: V, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "rgba(0, 0, 0, 0.4)"

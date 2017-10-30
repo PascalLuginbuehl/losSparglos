@@ -1,5 +1,5 @@
-import { Game } from "./Game"
 import { debugConsole } from "./debugConsole"
+import { Game } from "./Game"
 
 export class Render {
   ctx: CanvasRenderingContext2D
@@ -29,7 +29,6 @@ export class Render {
 
     this.mapCtx = this.mapCanvas.getContext('2d')
 
-
     // Preload images images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
       this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width)
@@ -37,12 +36,12 @@ export class Render {
       image.src = "./images/background.png"
       image.addEventListener('load', () => {
 
-        var pattern = ctx.createPattern(image, 'repeat');
+        let pattern = ctx.createPattern(image, 'repeat')
         this.mapCtx.fillStyle = pattern
         this.mapCtx.fill()
 
         for (let i = 0; i < this.game.blocksMap.length; i++) {
-          this.game.blocksMap[i].render(this.mapCtx);
+          this.game.blocksMap[i].render(this.mapCtx)
         }
 
         setInterval(this.renderLoop.bind(this), 16)
@@ -71,7 +70,7 @@ export class Render {
     this.ctx.save()
 
     // Translate to cneter of thing
-    this.ctx.translate(Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width/2), Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height/2))
+    this.ctx.translate(Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width / 2), Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height / 2))
 
     // Draw map, to safe performence
     this.ctx.drawImage(this.mapCanvas, 0, 0)

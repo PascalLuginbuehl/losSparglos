@@ -22,7 +22,6 @@ export class debugConsole {
       callback(parseFloat(number.value))
     })
 
-
     container.appendChild(label)
     container.appendChild(number)
     this.masterElement.appendChild(container)
@@ -40,7 +39,6 @@ export class debugConsole {
     checkbox.addEventListener('change', () => {
       callback(checkbox.checked)
     })
-
 
     container.appendChild(label)
     container.appendChild(checkbox)
