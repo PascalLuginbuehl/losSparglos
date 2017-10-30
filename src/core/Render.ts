@@ -32,7 +32,7 @@ export class Render {
     // Preload images images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
       this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width)
-      let image = new Image
+      let image = new Image()
       image.src = "./images/background.png"
       image.addEventListener('load', () => {
 

@@ -76,7 +76,7 @@ export class V implements Vector {
    */
   smalest(vector: V): V {
     let x = this.x < vector.x ? this.x : vector.x
-      , y = this.y < vector.y ? this.y : vector.y
+    let y = this.y < vector.y ? this.y : vector.y
     return new V(x, y)
   }
 
@@ -87,7 +87,7 @@ export class V implements Vector {
    */
   biggest(vector: V): V {
     let x = this.x > vector.x ? this.x : vector.x
-      , y = this.y > vector.y ? this.y : vector.y
+    let y = this.y > vector.y ? this.y : vector.y
     return new V(x, y)
   }
 
@@ -102,10 +102,10 @@ export class V implements Vector {
     let x = this.x - vector.x
     let y = this.y - vector.y
 
-    let x_prime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)))
-    let y_prime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)))
+    let xPrime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)))
+    let yPrime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)))
 
-    return new V(x_prime, y_prime)
+    return new V(xPrime, yPrime)
   }
 
   public round(): V {
@@ -113,6 +113,6 @@ export class V implements Vector {
   }
 
   public equal(v: V): boolean {
-    return (this.x == v.x && this.y == v.y)
+    return (this.x === v.x && this.y === v.y)
   }
 }
