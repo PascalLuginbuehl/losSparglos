@@ -7,6 +7,62 @@
       },
       "type":"spawnPoint"
     },
+    {
+       "position":{  
+        "x":8,
+        "y":10
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {
+       "position":{  
+        "x":8,
+        "y":11
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {
+       "position":{  
+        "x":8,
+        "y":12
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {
+       "position":{  
+        "x":8,
+        "y":13
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {
+       "position":{  
+        "x":8,
+        "y":13
+      },
+      "type":"brick_brown_wall_corner_down_right"
+    },
+    {
+       "position":{  
+        "x":9,
+        "y":13
+      },
+      "type":"brick_brown_wall_corner_up_left"
+    },
+    {
+       "position":{  
+        "x":9,
+        "y":14
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {
+       "position":{  
+        "x":9,
+        "y":15
+      },
+      "type":"brick_brown_wall_down"
+    },
     {  
       "position":{  
         "x":15,
@@ -14,7 +70,6 @@
       },
       "type":"brick_brown_wall_down"
     },
-
     {  
       "position":{  
         "x":15,
@@ -63,7 +118,21 @@
         "y":11
       },
       "type":"roof_dark_tiles_2_4"
-    },    
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":11
+      },
+      "type":"roof_dark_large_vent"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":15
+      },
+      "type":"roof_dark_small_vent_1"
+    }, 
     {  
       "position":{  
         "x":15,
@@ -354,9 +423,23 @@
     {  
       "position":{  
         "x":24,
+        "y":11
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
+        "x":24,
         "y":10
       },
       "type":"brick_brown_wall_corner_up_left"
+    },
+        {  
+      "position":{  
+        "x":24,
+        "y":10
+      },
+      "type":"roof_dark_wall_corner_up_left"
     },
     {  
       "position":{  
@@ -367,10 +450,24 @@
     },
     {  
       "position":{  
+        "x":23,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
         "x":22,
         "y":10
       },
       "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
     },
     {  
       "position":{  
@@ -381,10 +478,24 @@
     },
     {  
       "position":{  
+        "x":21,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
         "x":20,
         "y":10
       },
       "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
     },
     {  
       "position":{  
@@ -395,10 +506,24 @@
     },
     {  
       "position":{  
+        "x":19,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
         "x":18,
         "y":10
       },
       "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
     },
     {  
       "position":{  
@@ -409,10 +534,24 @@
     },
     {  
       "position":{  
+        "x":17,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
         "x":16,
         "y":10
       },
       "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":10
+      },
+      "type":"roof_dark_wall_side_up"
     },
     {  
       "position":{  
@@ -424,6 +563,13 @@
     {  
       "position":{  
         "x":15,
+        "y":10
+      },
+      "type":"brick_brown_wall_corner_up_right_out"
+    },
+    {  
+      "position":{  
+        "x":15,
         "y":18
       },
       "type":"concrete_flooring_rough_5_2"
@@ -472,10 +618,584 @@
     },
     {  
       "position":{  
+        "x":10,
+        "y":22
+      },
+      "type":"concrete_flooring_rough_5_2"
+    },
+    {  
+      "position":{  
+        "x":10,
+        "y":24
+      },
+      "type":"concrete_flooring_rough_5_2"
+    },
+    {  
+      "position":{  
         "x":12,
         "y":16
       },
       "type":"truck"
+    },
+    {  
+      "position":{  
+        "x":21.5,
+        "y":16.5
+      },
+      "type":"bush_1"
+    },
+    {  
+      "position":{  
+        "x":23.5,
+        "y":17
+      },
+      "type":"bush_1"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":15
+      },
+      "type":"tree_1"
+    },
+    {
+       "position":{  
+        "x":16,
+        "y":24
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":24
+      },
+      "type":"roof_dark_wall_down_left"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":24
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":24
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":24
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":28
+      },
+      "type":"roof_dark_tiles_2_2"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":28
+      },
+      "type":"roof_dark_tiles_2_2"
+    },
+    {  
+      "position":{  
+        "x":23,
+        "y":24
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":24
+      },
+      "type":"roof_dark_small_vent_2"
+    },
+    {  
+    "position":{  
+        "x":18,
+        "y":24
+      },
+      "type":"roof_dark_small_vent_1"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":26
+      },
+      "type":"roof_dark_large_vent"
+    }, 
+    {  
+      "position":{  
+        "x":16,
+        "y":25
+      },
+      "type":"brick_brown_wall_down"
+    }, 
+    {  
+      "position":{  
+        "x":16,
+        "y":25
+      },
+      "type":"roof_dark_wall_down_left"
+    }, 
+    {  
+      "position":{  
+        "x":16,
+        "y":26
+      },
+      "type":"brick_brown_wall_down"
+    }, 
+    {  
+      "position":{  
+        "x":16,
+        "y":26
+      },
+      "type":"roof_dark_wall_down_left"
+    }, 
+    {  
+      "position":{  
+        "x":16,
+        "y":27
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":27
+      },
+      "type":"roof_dark_wall_down_left"
+    },     
+    {  
+      "position":{  
+        "x":16,
+        "y":28
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":28
+      },
+      "type":"roof_dark_wall_down_left"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":29
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":29
+      },
+      "type":"roof_dark_wall_down_left"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":30
+      },
+      "type":"brick_brown_wall_corner_down_right"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":30
+      },
+      "type":"roof_dark_wall_corner_down_right"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":30
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":30
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":30
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":30
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":30
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":30
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":30
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":30
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":30
+      },
+      "type":"brick_brown_wall_corner_down_left"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":30
+      },
+      "type":"roof_dark_wall_corner_down_left"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":29
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":29
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":28
+      },
+      "type":"brick_brown_wall_corner_up_right"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":28
+      },
+      "type":"roof_dark_wall_corner_up_right"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":28
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":28
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":23,
+        "y":28
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":23,
+        "y":28
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":24,
+        "y":28
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":24,
+        "y":28
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":28
+      },
+      "type":"brick_brown_wall_corner_down_left"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":28
+      },
+      "type":"roof_dark_wall_corner_down_left"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":27
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":27
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":26
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":26
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{
+        "x":25,
+        "y":25
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":25
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":24
+      },
+      "type":"brick_brown_wall_down"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":24
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
+        "x":25,
+        "y":23
+      },
+      "type":"brick_brown_wall_corner_up_left"
+    },
+        {  
+      "position":{  
+        "x":25,
+        "y":23
+      },
+      "type":"roof_dark_wall_corner_up_left"
+    },
+    {  
+      "position":{  
+        "x":24,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":24,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":23,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":23,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":21,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":19,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":23
+      },
+      "type":"brick_brown_wall_side"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":23
+      },
+      "type":"roof_dark_wall_side_up"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":23
+      },
+      "type":"brick_brown_wall_corner_up_right"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":23
+      },
+      "type":"brick_brown_wall_corner_up_right_out"
+    },
+    {  
+      "position":{  
+        "x":14.1,
+        "y":23
+      },
+      "type":"tree_1"
+    },
+    {  
+      "position":{  
+        "x":17,
+        "y":21
+      },
+      "type":"tree_1"
+    },
+    {  
+      "position":{  
+        "x":8.5,
+        "y":11
+      },
+      "type":"tree_1"
+    },
+    {  
+      "position":{  
+        "x":15,
+        "y":25
+      },
+      "type":"bush_1"
     }
   ]
 }
