@@ -41,8 +41,8 @@ export class Body {
   }
 
   getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): IUpdatedValues {
-    let returnPosition: V = new V(newPosition.x, newPosition.y)
-    let returnVelocity: V = new V(newVelocity.x, newVelocity.y)
+    let returnPosition: V = new V(newPosition)
+    let returnVelocity: V = new V(newVelocity)
 
     if (this.checkCollision(collidedBody, new V(newPosition.x, this.position.y))) {
       returnVelocity.x = 0
@@ -54,11 +54,9 @@ export class Body {
       returnPosition.y = this.position.y
     }
 
-    if (returnPosition.x === newPosition.x && returnPosition.y === newPosition.y) {
-      returnVelocity.x = 0
-      returnVelocity.y = 0
-      returnPosition.x = this.position.x
-      returnPosition.y = this.position.y
+    if (this.checkCollision(collidedBody, new V(returnPosition))) {
+      returnVelocity = new V(0, 0)
+      returnPosition = new V(this.position)
     }
 
     return {position: returnPosition, velocity: returnVelocity}

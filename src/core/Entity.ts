@@ -63,8 +63,6 @@ export class Entity extends Body {
     let x = this.force.x
     let y = this.force.y
 
-
-
     let offset = this.lastOffset
 
     if (x > 0) {

@@ -257,17 +257,17 @@ export class Game {
             .checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))
         ) {
           if (collisions.length > 0) {
-              let newPosition: V = new V(position)
-              let newVelocity: V = new V(entity.velocity)
+            let newPosition: V = new V(position)
+            let newVelocity: V = new V(entity.velocity)
 
-              for (let i = 0; i < collisions.length; i++) {
-                let body = collisions[i]
-                let ret = entity.getCollisionPosition(newPosition, newVelocity, body)
-                newPosition = ret.position
-                newVelocity = ret.velocity
-              }
-              entity.position = newPosition
-              entity.velocity = newVelocity
+            for (let i = 0; i < collisions.length; i++) {
+              let body = collisions[i]
+              let ret = entity.getCollisionPosition(newPosition, newVelocity, body)
+              newPosition = ret.position
+              newVelocity = ret.velocity
+            }
+            entity.position = newPosition
+            entity.velocity = newVelocity
           } else {
             entity.position = position
           }
