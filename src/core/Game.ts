@@ -18,6 +18,7 @@ interface IKeys {
   a: boolean
   s: boolean
   d: boolean
+  space: boolean
 }
 
 export interface IConfigModelArray {
@@ -46,9 +47,12 @@ export class Game {
   mapSize: V
   player: Entity
   keys: IKeys
+  playerShootingDirection: V
   models: { [s: string]: Model }
 
   constructor(configModelArray: IConfigModelArray, configBlockArray: IConfigBlockArray) {
+    // Set default shooting direction
+    this.playerShootingDirection = new V(1, 0)
     this.models = {}
     this.modelGenerator(configModelArray)
 
@@ -60,9 +64,10 @@ export class Game {
       if (e.type === "spawnPoint") {
         this.entitiesMap.push(
           new Entity(
-          new V(e.position),
-          this.models.Player
-        ))
+            new V(e.position),
+            this.models.Player
+          )
+        )
       }
     })
 
@@ -75,26 +80,31 @@ export class Game {
       a: false,
       s: false,
       d: false,
+      space: false
     }
 
     window.addEventListener('keydown', (e) => {
-      if (this.keys.hasOwnProperty(e.key)) {
-        this.keys[e.key.toLowerCase()] = true
-
-        this.player.force = this.getVectorFromKeys(this.keys)
-
-        e.preventDefault()
+      // Special excpetion for Space
+      if (e.key === " ") {
+        this.keys.space = true
+      } else {
+         this.keys[e.key.toLowerCase()] = true
+         this.player.force = this.getVectorFromKeys(this.keys)
       }
+
+      e.preventDefault()
     })
 
     window.addEventListener('keyup', (e) => {
-      if (this.keys.hasOwnProperty(e.key)) {
+      // Special excpetion for Space
+      if (e.key === " ") {
+        this.keys.space = false
+      } else {
         this.keys[e.key.toLowerCase()] = false
-
         this.player.force = this.getVectorFromKeys(this.keys)
-
-        e.preventDefault()
       }
+
+      e.preventDefault()
     })
 
     setInterval(this.gameLoop.bind(this), 16)
@@ -152,6 +162,52 @@ export class Game {
 
   gameLoop() {
     let delay = 16 / 1000
+    // updateShooting direction
+
+    let x = this.player.force.x
+    let y = this.player.force.y
+
+    if (x > 0) {
+      this.playerShootingDirection.x = 1
+      this.playerShootingDirection.y = 0
+    } else if (x < 0) {
+      this.playerShootingDirection.x = -1
+      this.playerShootingDirection.y = 0
+    } else if (y < 0) {
+      this.playerShootingDirection.x = 0
+      this.playerShootingDirection.y = 1
+    } else if (y > 0) {
+      this.playerShootingDirection.x = 0
+      this.playerShootingDirection.y = -1
+    }
+
+    // Shoot bullet
+    if (this.keys.space) {
+      let bulletModel = this.models.Player
+      let bulletDirection = this.playerShootingDirection
+
+      let bulletPosition = new V(this.player.position)
+      const collisionBox = this.player.model.hitbox.collisionBox
+
+      if (bulletDirection.x > 0) {
+        bulletPosition.x += collisionBox.min.x - bulletModel.hitbox.collisionBox.max.x
+      } else if (bulletDirection.x < 0) {
+        bulletPosition.x += collisionBox.max.x
+      }
+
+      if (bulletDirection.y > 0) {
+        bulletPosition.y += collisionBox.min.y - bulletModel.hitbox.collisionBox.max.y
+      } else if (bulletDirection.x < 0) {
+        bulletPosition.y += collisionBox.max.y
+      }
+
+      this.entitiesMap.push(new Entity(
+        new V(bulletPosition),
+        this.models.Player,
+        bulletDirection,
+        bulletDirection
+      ))
+    }
 
     for (let i = 0; i < this.entitiesMap.length; i++) {
       let entity: Entity = this.entitiesMap[i]

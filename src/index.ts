@@ -4,7 +4,6 @@ import { Render } from "./core/Render"
 import './css/index.scss'
 import './images/background.png'
 import './images/blocks.png'
-import './images/dirt.png'
 import './images/entities.png'
 import './images/props.png'
 
