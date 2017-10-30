@@ -23,7 +23,7 @@ export class Render {
       canvas.height = document.documentElement.clientHeight
     })
 
-	// Map canvas
+    // Map canvas
     this.mapCanvas = document.createElement('canvas')
     this.mapCanvas.height = this.game.mapSize.x
     this.mapCanvas.width = this.game.mapSize.y

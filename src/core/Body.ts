@@ -2,28 +2,28 @@ import { Hitbox } from "./Hitbox"
 import { Model } from "./Model"
 import { V } from "./Vector"
 
-//Fixed collision bug
+// Fixed collision bug
 
-interface updatedValues {
+interface IUpdatedValues {
   velocity: V
   position: V
 }
 
 /** Body class with basic parameters for positon and hitbox, it also provides a function for cehcking collision */
 export class Body {
-  public position: V
-  public model: Model
+  position: V
+  model: Model
 
   constructor(positon: V, model: Model) {
     this.position = positon
     this.model = model
   }
 
-  public checkCollision(body: Body, newPositon: V = this.position): boolean {
+  checkCollision(body: Body, newPositon: V = this.position): boolean {
     return this.model.checkCollision(body.position, newPositon, body.model)
   }
 
-  public render(ctx: CanvasRenderingContext2D): void {
+  render(ctx: CanvasRenderingContext2D): void {
     let textureOrigin = this.model.textureOrigin
     let textureSize = this.model.textureSize
 
@@ -40,7 +40,7 @@ export class Body {
     )
   }
 
-  public getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): updatedValues {
+  getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): IUpdatedValues {
     let returnPosition: V = new V(newPosition.x, newPosition.y)
     let returnVelocity: V = new V(newVelocity.x, newVelocity.y)
 
