@@ -1,7 +1,5 @@
 import { IVector, V } from "./Vector"
 
-//Added UML,WIP attacking, typings, unit tests
-
 export interface IRectangleInterace {
   min: IVector | V,
   max: IVector | V

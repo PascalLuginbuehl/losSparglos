@@ -1,7 +1,7 @@
 import { Rectangle } from "./Rectangle"
 import { V } from "./Vector"
 
-//Added UML, WIP attacking, typing, unit tests
+// Added UML, WIP attacking, typing, unit tests
 
 export class Hitbox {
   protected rectangles: Rectangle[]
