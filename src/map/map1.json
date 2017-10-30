@@ -1,305 +1,481 @@
-{
+{  
   "blocks":[
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":15,
+        "y":20
+      },
+      "type":"spawnPoint"
+    },
+    {  
+      "position":{  
         "x":15,
         "y":11
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+
+    {  
+      "position":{  
         "x":15,
         "y":11
       },
-      "type":"roof_dark_wall_side"
+      "type":"roof_dark_wall_down_left"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":16,
+        "y":11
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":11
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":20,
+        "y":11
+      },
+      "type":"roof_dark_tiles_2_4"
+    },
+    {  
+      "position":{  
+        "x":16,
+        "y":15
+      },
+      "type":"roof_dark_tiles_2_2"
+    },
+    {  
+      "position":{  
+        "x":18,
+        "y":15
+      },
+      "type":"roof_dark_tiles_2_2"
+    },
+    {  
+      "position":{  
+        "x":22,
+        "y":11
+      },
+      "type":"roof_dark_tiles_2_4"
+    },    
+    {  
+      "position":{  
         "x":15,
         "y":12
       },
       "type":"brick_brown_wall_down"
-    },
-    {
-      "position":{
+    }, 
+    {  
+      "position":{  
         "x":15,
         "y":12
       },
-      "type":"roof_dark_wall_side"
-    },
-    {
-      "position":{
+      "type":"roof_dark_wall_down_left"
+    }, 
+    {  
+      "position":{  
         "x":15,
         "y":13
       },
       "type":"brick_brown_wall_down"
-    },
-    {
-      "position":{
+    }, 
+    {  
+      "position":{  
+        "x":15,
+        "y":13
+      },
+      "type":"roof_dark_wall_down_left"
+    }, 
+    {  
+      "position":{  
         "x":15,
         "y":14
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":15,
+        "y":14
+      },
+      "type":"roof_dark_wall_down_left"
+    },     
+    {  
+      "position":{  
         "x":15,
         "y":15
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":15,
+        "y":15
+      },
+      "type":"roof_dark_wall_down_left"
+    },
+    {  
+      "position":{  
         "x":15,
         "y":16
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":15,
+        "y":16
+      },
+      "type":"roof_dark_wall_down_left"
+    },
+    {  
+      "position":{  
         "x":15,
         "y":17
       },
       "type":"brick_brown_wall_corner_down_right"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":15,
+        "y":17
+      },
+      "type":"roof_dark_wall_corner_down_right"
+    },
+    {  
+      "position":{  
         "x":16,
         "y":17
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":16,
+        "y":17
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":17,
         "y":17
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":17,
+        "y":17
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":18,
         "y":17
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":18,
+        "y":17
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":19,
         "y":17
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":19,
+        "y":17
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":20,
         "y":17
       },
       "type":"brick_brown_wall_corner_down_left"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":20,
+        "y":17
+      },
+      "type":"roof_dark_wall_corner_down_left"
+    },
+    {  
+      "position":{  
         "x":20,
         "y":16
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":20,
+        "y":16
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
         "x":20,
         "y":15
       },
       "type":"brick_brown_wall_corner_up_right"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":20,
+        "y":15
+      },
+      "type":"roof_dark_wall_corner_up_right"
+    },
+    {  
+      "position":{  
         "x":21,
         "y":15
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":21,
+        "y":15
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":22,
         "y":15
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":22,
+        "y":15
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":23,
         "y":15
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":23,
+        "y":15
+      },
+      "type":"roof_dark_wall_side_down"
+    },
+    {  
+      "position":{  
         "x":24,
         "y":15
       },
       "type":"brick_brown_wall_corner_down_left"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":24,
+        "y":15
+      },
+      "type":"roof_dark_wall_corner_down_left"
+    },
+    {  
+      "position":{  
         "x":24,
         "y":14
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":24,
+        "y":14
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
         "x":24,
         "y":13
       },
       "type":"brick_brown_wall_down"
     },
-    {
+    {  
+      "position":{  
+        "x":24,
+        "y":13
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
       "position":{
         "x":24,
         "y":12
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
+        "x":24,
+        "y":12
+      },
+      "type":"roof_dark_wall_down_right"
+    },
+    {  
+      "position":{  
         "x":24,
         "y":11
       },
       "type":"brick_brown_wall_down"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":24,
         "y":10
       },
       "type":"brick_brown_wall_corner_up_left"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":23,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":22,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":21,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":20,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":19,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":18,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":17,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":16,
         "y":10
       },
       "type":"brick_brown_wall_side"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":15,
         "y":10
       },
       "type":"brick_brown_wall_corner_up_right"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":15,
         "y":18
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":20,
         "y":18
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":20,
         "y":20
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":15,
         "y":20
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":10,
         "y":20
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":10,
         "y":18
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":10,
         "y":16
       },
       "type":"concrete_flooring_rough_5_2"
     },
-    {
-      "position":{
+    {  
+      "position":{  
         "x":12,
         "y":16
       },
       "type":"truck"
-    },
-    {
-      "position":{
-        "x":10,
-        "y":17
-      },
-      "type":"spawnPoint"
     }
   ]
 }

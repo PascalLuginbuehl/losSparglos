@@ -97,7 +97,7 @@
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/blocks.png"
   },
-  "roof_dark_wall_side": {
+  "roof_dark_wall_down_left": {
     "Hitbox": [{
       "min":
         {"x": 0, "y": 0},
@@ -106,6 +106,94 @@
     }],
     "textureOrigin": {"x": 15, "y": 13},
     "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_wall_down_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 17, "y": 13},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_wall_down_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 17, "y": 13},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_wall_side_down": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 16, "y": 15},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_wall_corner_down_left": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 17, "y": 15},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+    "roof_dark_wall_corner_down_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 15, "y": 15},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+   "roof_dark_wall_corner_up_right": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 16, "y": 14},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+  "roof_dark_tiles_2_4": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 20, "y": 12},
+    "textureSize": {"x": 2, "y": 4},
+    "spriteSheetPath" : "images/blocks.png"
+  },
+ "roof_dark_tiles_2_2": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 20, "y": 12},
+    "textureSize": {"x": 2, "y": 2},
     "spriteSheetPath" : "images/blocks.png"
   },
   "truck": {
