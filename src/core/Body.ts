@@ -25,7 +25,17 @@ export class Body {
     let textureOrigin = this.model.textureOrigin
     let textureSize = this.model.textureSize
 
-    ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, this.position.x, this.position.y, this.model.textureSize.x, this.model.textureSize.y)
+    ctx.drawImage(
+      this.model.spriteSheet,
+      textureOrigin.x,
+      textureOrigin.y,
+      textureSize.x,
+      textureSize.y,
+      this.position.x,
+      this.position.y,
+      this.model.textureSize.x,
+      this.model.textureSize.y
+    )
   }
 
   public getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): IUpdatedValues {
@@ -42,7 +52,7 @@ export class Body {
       returnPosition.y = this.position.y
     }
 
-    if (returnPosition.x == newPosition.x && returnPosition.y == newPosition.y) {
+    if (returnPosition.x === newPosition.x && returnPosition.y === newPosition.y) {
       returnVelocity.x = 0
       returnVelocity.y = 0
       returnPosition.x = this.position.x

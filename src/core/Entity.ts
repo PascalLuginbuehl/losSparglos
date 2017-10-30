@@ -35,7 +35,7 @@ export class Entity extends Body {
 
     // console.log(this.velocity)
     if (this.model.spriteBobbing) {
-      if (this.velocity.x != 0 || this.velocity.y != 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
+      if (this.velocity.x !== 0 || this.velocity.y !== 0 || Math.sin(bobbingCurve / 4) - 1 > -.95) {
         let height = Math.sin(bobbingCurve / 4)
         position = new V(position.x, position.y - Math.round(height * 2.5) - 2.5)
         bobbingCurve++
@@ -43,13 +43,25 @@ export class Entity extends Body {
         bobbingCurve = 0
       }
     }
-    // console.log( textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
-    ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
+    // console.log( textureOrigin.x,
+    // textureOrigin.y, textureSize.x,
+    // textureSize.y, position.x, position.y, this.model.textureSize.x, this.model.textureSize.y)
+    ctx.drawImage(
+      this.model.spriteSheet,
+      textureOrigin.x,
+      textureOrigin.y,
+      textureSize.x,
+      textureSize.y,
+      position.x,
+      position.y,
+      this.model.textureSize.x,
+      this.model.textureSize.y
+    )
   }
 
   getSpriteOffset(): number {
     let x = this.force.x
-      , y = this.force.y
+    let y = this.force.y
 
     let offset = this.lastOffset
 

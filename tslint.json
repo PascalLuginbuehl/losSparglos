@@ -8,7 +8,8 @@
     "prefer-for-of": [false],
     "quotemark": [false],
     "trailing-comma": [false],
-    "member-access": [false]
+    "member-access": [false],
+    "no-shadowed-variable": [false]
   },
   "jsRules": {
 
