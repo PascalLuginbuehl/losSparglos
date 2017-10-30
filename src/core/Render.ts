@@ -23,13 +23,14 @@ export class Render {
       canvas.height = document.documentElement.clientHeight
     })
 
+	// Map canvas
     this.mapCanvas = document.createElement('canvas')
     this.mapCanvas.height = this.game.mapSize.x
     this.mapCanvas.width = this.game.mapSize.y
 
     this.mapCtx = this.mapCanvas.getContext('2d')
 
-    // Preload images images
+    // Preload images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
       this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width)
       let image = new Image()

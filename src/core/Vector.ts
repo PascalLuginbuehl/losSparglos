@@ -3,6 +3,8 @@ export interface IVector {
   y: number,
 }
 
+// Added UML, WIP attacking, typings, undit tests
+
 /** Class representing a point. */
 export class V implements IVector {
   x: number

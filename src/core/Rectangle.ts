@@ -1,5 +1,7 @@
 import { V, Vector } from "./Vector"
 
+//Added UML,WIP attacking, typings, unit tests
+
 export interface RectangleInterace {
   min: Vector | V,
   max: Vector | V
