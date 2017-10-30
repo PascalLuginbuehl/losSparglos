@@ -1,4 +1,4 @@
-import { configInterface, configModelArray, Game } from "./core/Game"
+import { Game, IConfigInterface, IConfigModelArray } from "./core/Game"
 import { Render } from "./core/Render"
 
 import './css/index.scss'
@@ -11,14 +11,13 @@ import './images/props.png'
 import map1 from './map/map1.json'
 import models from './map/models.json'
 
-console.log(map1)
-
 const canvas = document.createElement('canvas')
 document.body.appendChild(canvas)
 document.body.classList.add("container")
 
 declare global {
-  interface Window { gameConfig: configInterface }
+  // tslint:disable-next-line
+  interface Window { gameConfig: IConfigInterface }
 }
 
 window.gameConfig = {

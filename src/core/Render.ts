@@ -1,4 +1,4 @@
-import { debugConsole } from "./debugConsole"
+import { DebugConsole } from "./DebugConsole"
 import { Game } from "./Game"
 
 export class Render {
@@ -23,16 +23,17 @@ export class Render {
       canvas.height = document.documentElement.clientHeight
     })
 
+	// Map canvas
     this.mapCanvas = document.createElement('canvas')
     this.mapCanvas.height = this.game.mapSize.x
     this.mapCanvas.width = this.game.mapSize.y
 
     this.mapCtx = this.mapCanvas.getContext('2d')
 
-    // Preload images images
+    // Preload images
     Promise.all(Object.keys(this.game.models).map((e) => this.game.models[e].preloadImage())).then(() => {
       this.mapCtx.rect(0, 0, this.mapCanvas.height, this.mapCanvas.width)
-      let image = new Image
+      let image = new Image()
       image.src = "./images/background.png"
       image.addEventListener('load', () => {
 
@@ -48,7 +49,7 @@ export class Render {
       })
     })
 
-    let debug = new debugConsole()
+    let debug = new DebugConsole()
     debug.addCheckbox("Hitbox", window.gameConfig.drawHitbox, (e) => {
       window.gameConfig.drawHitbox = e
     })
@@ -70,7 +71,10 @@ export class Render {
     this.ctx.save()
 
     // Translate to cneter of thing
-    this.ctx.translate(Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width / 2), Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height / 2))
+    this.ctx.translate(
+      Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width / 2),
+      Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height / 2)
+    )
 
     // Draw map, to safe performence
     this.ctx.drawImage(this.mapCanvas, 0, 0)
@@ -84,6 +88,6 @@ export class Render {
     this.ctx.restore()
 
     // Default js call to reload screen
-    requestAnimationFrame(() => {})
+    requestAnimationFrame(() => null)
   }
 }

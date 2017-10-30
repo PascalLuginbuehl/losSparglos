@@ -2,6 +2,8 @@ import { Body } from "./Body"
 import { Model } from "./Model"
 import { V } from "./Vector"
 
+// Player centers, seperate block rendering
+
 export class Block extends Body {
   public collision: boolean
 

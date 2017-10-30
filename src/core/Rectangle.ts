@@ -1,15 +1,17 @@
-import { V, Vector } from "./Vector"
+import { IVector, V } from "./Vector"
 
-export interface RectangleInterace {
-  min: Vector | V,
-  max: Vector | V
+//Added UML,WIP attacking, typings, unit tests
+
+export interface IRectangleInterace {
+  min: IVector | V,
+  max: IVector | V
 }
 
-export class Rectangle implements RectangleInterace {
+export class Rectangle implements IRectangleInterace {
   min: V
   max: V
 
-  constructor(min: V | RectangleInterace, max?: V) {
+  constructor(min: V | IRectangleInterace, max?: V) {
     if (min instanceof V) {
       this.min = min
       this.max = max
@@ -24,7 +26,12 @@ export class Rectangle implements RectangleInterace {
     let rectMin = rect.min
     let thisMin = this.min
 
-    if (thisMin.x < rectMin.x + rect.max.x && this.max.x + thisMin.x > rectMin.x && thisMin.y < rect.max.y + rectMin.y && this.max.y + thisMin.y > rectMin.y) {
+    if (
+      thisMin.x < rectMin.x + rect.max.x &&
+      this.max.x + thisMin.x > rectMin.x &&
+      thisMin.y < rect.max.y + rectMin.y &&
+      this.max.y + thisMin.y > rectMin.y
+    ) {
       return true
     }
 

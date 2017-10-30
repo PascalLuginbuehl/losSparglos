@@ -1,10 +1,12 @@
-export interface Vector {
+export interface IVector {
   x: number,
   y: number,
 }
 
+// Added UML, WIP attacking, typings, undit tests
+
 /** Class representing a point. */
-export class V implements Vector {
+export class V implements IVector {
   x: number
   y: number
 
@@ -13,8 +15,8 @@ export class V implements Vector {
    * @param {number} x - The x value.
    * @param {number} y - The y value.
    */
-  constructor(x: number | Vector, y?: number) {
-    if (typeof x == "number") {
+  constructor(x: number | IVector, y?: number) {
+    if (typeof x === "number") {
       this.x = Math.round(x * 10) / 10
       this.y = Math.round(y * 10) / 10
     } else {
@@ -76,7 +78,7 @@ export class V implements Vector {
    */
   smalest(vector: V): V {
     let x = this.x < vector.x ? this.x : vector.x
-      , y = this.y < vector.y ? this.y : vector.y
+    let y = this.y < vector.y ? this.y : vector.y
     return new V(x, y)
   }
 
@@ -87,7 +89,7 @@ export class V implements Vector {
    */
   biggest(vector: V): V {
     let x = this.x > vector.x ? this.x : vector.x
-      , y = this.y > vector.y ? this.y : vector.y
+    let y = this.y > vector.y ? this.y : vector.y
     return new V(x, y)
   }
 
@@ -102,17 +104,20 @@ export class V implements Vector {
     let x = this.x - vector.x
     let y = this.y - vector.y
 
-    let x_prime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)))
-    let y_prime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)))
+    let xPrime = vector.x + ((x * Math.cos(angle)) - (y * Math.sin(angle)))
+    let yPrime = vector.y + ((x * Math.sin(angle)) + (y * Math.cos(angle)))
 
-    return new V(x_prime, y_prime)
+    return new V(xPrime, yPrime)
   }
 
   public round(): V {
-    return new V(this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x), this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y))
+    return new V(
+      this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x),
+      this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y)
+    )
   }
 
   public equal(v: V): boolean {
-    return (this.x == v.x && this.y == v.y)
+    return (this.x === v.x && this.y === v.y)
   }
 }
