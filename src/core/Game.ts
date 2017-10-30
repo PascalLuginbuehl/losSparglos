@@ -257,8 +257,8 @@ export class Game {
             .checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))
         ) {
           if (collisions.length > 0) {
-              let newPosition: V = new V(position.x, position.y)
-              let newVelocity: V = new V(entity.velocity.x, entity.velocity.y)
+              let newPosition: V = new V(position)
+              let newVelocity: V = new V(entity.velocity)
 
               for (let i = 0; i < collisions.length; i++) {
                 let body = collisions[i]
