@@ -2,7 +2,7 @@ import { Hitbox } from "./Hitbox"
 import { Model } from "./Model"
 import { V } from "./Vector"
 
-interface updatedValues {
+interface IUpdatedValues {
   velocity: V
   position: V
 }
@@ -28,7 +28,7 @@ export class Body {
     ctx.drawImage(this.model.spriteSheet, textureOrigin.x, textureOrigin.y, textureSize.x, textureSize.y, this.position.x, this.position.y, this.model.textureSize.x, this.model.textureSize.y)
   }
 
-  public getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): updatedValues {
+  public getCollisionPosition(newPosition: V, newVelocity: V, collidedBody: Body): IUpdatedValues {
     let returnPosition: V = new V(newPosition.x, newPosition.y)
     let returnVelocity: V = new V(newVelocity.x, newVelocity.y)
 

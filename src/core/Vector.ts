@@ -1,10 +1,10 @@
-export interface Vector {
+export interface IVector {
   x: number,
   y: number,
 }
 
 /** Class representing a point. */
-export class V implements Vector {
+export class V implements IVector {
   x: number
   y: number
 
@@ -13,8 +13,8 @@ export class V implements Vector {
    * @param {number} x - The x value.
    * @param {number} y - The y value.
    */
-  constructor(x: number | Vector, y?: number) {
-    if (typeof x == "number") {
+  constructor(x: number | IVector, y?: number) {
+    if (typeof x === "number") {
       this.x = Math.round(x * 10) / 10
       this.y = Math.round(y * 10) / 10
     } else {
@@ -109,7 +109,10 @@ export class V implements Vector {
   }
 
   public round(): V {
-    return new V(this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x), this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y))
+    return new V(
+      this.x > 0 ? Math.floor(this.x) : Math.ceil(this.x),
+      this.y > 0 ? Math.floor(this.y) : Math.ceil(this.y)
+    )
   }
 
   public equal(v: V): boolean {

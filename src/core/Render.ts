@@ -70,7 +70,10 @@ export class Render {
     this.ctx.save()
 
     // Translate to cneter of thing
-    this.ctx.translate(Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width / 2), Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height / 2))
+    this.ctx.translate(
+      Math.round(this.game.player.position.x) * -1 + Math.round(this.canvas.width / 2),
+      Math.round(this.game.player.position.y) * -1  + Math.round(this.canvas.height / 2)
+    )
 
     // Draw map, to safe performence
     this.ctx.drawImage(this.mapCanvas, 0, 0)
@@ -84,6 +87,6 @@ export class Render {
     this.ctx.restore()
 
     // Default js call to reload screen
-    requestAnimationFrame(() => {})
+    requestAnimationFrame(() => null)
   }
 }
