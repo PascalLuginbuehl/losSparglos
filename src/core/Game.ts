@@ -235,6 +235,7 @@ export class Game {
 
         let collisions: Body[] = []
 
+        let bulletCollision = false
         for (let o = 0; o < this.blocksMap.length; o++) {
           let block: Block = this.blocksMap[o]
           if (block) {
@@ -242,7 +243,13 @@ export class Game {
             if (block.collision) {
               // Collision detection
               if (entity.checkCollision(block, position)) {
-                collisions.push(block)
+                // Special exception for bullets :)
+                if (entity.model === this.models.Bullet) {
+                  bulletCollision = true
+                  continue
+                } else {
+                  collisions.push(block)
+                }
               }
             }
           }
@@ -254,9 +261,21 @@ export class Game {
 
             // Collision detection
             if (entity.checkCollision(entity2, position)) {
-              collisions.push(entity2)
+              // Handling Body collisions with bullet
+              // Somewhat of hp stuff
+              if (entity.model === this.models.Bullet) {
+                bulletCollision = true
+                continue
+              } else {
+                collisions.push(entity2)
+              }
             }
           }
+        }
+
+        if (bulletCollision) {
+          this.entitiesMap.splice(i, 1)
+          continue
         }
 
         // sets new position or keeps last depending on collision
