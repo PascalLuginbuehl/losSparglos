@@ -173,25 +173,33 @@ export class Game {
     if (this.keys.space && this.shootCooldown < 0) {
       // Cooldown for keys
       this.shootCooldown = 20
-      let bulletModel = this.models.Player
+      let bulletModel = this.models.Bullet
       let bulletDirection = this.player.lastMovingDirection
 
-      let bulletPosition = new V(this.player.position)
       const collisionBox = this.player.model.hitbox.collisionBox
+      let bulletPosition = new V(this.player.position).add(collisionBox.min)
 
-      const BULLET_DISTANCE_MULTIPLIER = 0.018
+      const BULLET_DISTANCE_MULTIPLIER = 0.003
       let bulletOffset = this.player.velocity.scale(BULLET_DISTANCE_MULTIPLIER)
+      bulletOffset.x *= bulletModel.hitbox.collisionBox.max.x
+      bulletOffset.y *= bulletModel.hitbox.collisionBox.max.y
       // Calculating padding to origin of player
       if (bulletDirection.x < 0) {
         // CollisionBox of player .min x - collsionBox of bullet .min x
-        bulletPosition.x += (collisionBox.min.x - bulletModel.hitbox.collisionBox.max.x) + bulletOffset.x
+        bulletPosition.x += (bulletModel.hitbox.collisionBox.max.x * -1) + bulletOffset.x
       } else if (bulletDirection.x > 0) {
         // Max position of Player + multiplier
         bulletPosition.x += collisionBox.max.x + bulletOffset.x
       }
 
+      if (bulletDirection.x !== 0) {
+        bulletPosition.y += (collisionBox.max.y - bulletModel.hitbox.collisionBox.max.y) / 2
+      } else {
+        bulletPosition.x += (collisionBox.max.x - bulletModel.hitbox.collisionBox.max.x) / 2
+      }
+
       if (bulletDirection.y < 0) {
-        bulletPosition.y += (collisionBox.min.y - bulletModel.hitbox.collisionBox.max.y) + bulletOffset.y
+        bulletPosition.y += (bulletModel.hitbox.collisionBox.max.y * -1) + bulletOffset.y
       } else if (bulletDirection.y > 0) {
         bulletPosition.y += collisionBox.max.y + bulletOffset.y
       }
@@ -199,7 +207,7 @@ export class Game {
       // add bullet to map
       this.entitiesMap.push(new Entity(
         new V(bulletPosition),
-        this.models.Player,
+        bulletModel,
         bulletDirection.scale(3),
         bulletDirection.scale(800),
       ))
