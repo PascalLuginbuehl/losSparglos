@@ -288,5 +288,16 @@
     "textureOrigin": {"x": 6, "y": 29},
     "textureSize": {"x": 1, "y": 1},
     "spriteSheetPath" : "images/props.png"
+  },
+  "trash": {
+    "Hitbox": [{
+      "min":
+        {"x": 0, "y": 0},
+      "max":
+        {"x": 1, "y": 1}
+    }],
+    "textureOrigin": {"x": 12.5, "y": 1},
+    "textureSize": {"x": 1, "y": 1},
+    "spriteSheetPath" : "images/props.png"
   }
 }
