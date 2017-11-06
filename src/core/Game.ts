@@ -47,13 +47,13 @@ export class Game {
   mapSize: V
   player: Entity
   keys: IKeys
-  playerShootingDirection: V
   models: { [s: string]: Model }
+  shootCooldown: number
 
   constructor(configModelArray: IConfigModelArray, configBlockArray: IConfigBlockArray) {
     // Set default shooting direction
-    this.playerShootingDirection = new V(1, 0)
     this.models = {}
+    this.shootCooldown = 0
     this.modelGenerator(configModelArray)
 
     this.entitiesMap = []
@@ -85,26 +85,32 @@ export class Game {
 
     window.addEventListener('keydown', (e) => {
       // Special excpetion for Space
-      if (e.key === " ") {
-        this.keys.space = true
-      } else {
-         this.keys[e.key.toLowerCase()] = true
-         this.player.force = this.getVectorFromKeys(this.keys)
+      let key = e.key
+      if (key === " ") {
+        key = "space"
       }
 
-      e.preventDefault()
+      if (this.keys.hasOwnProperty(key.toLowerCase())) {
+        this.keys[key.toLowerCase()] = true
+        this.player.force = this.getVectorFromKeys(this.keys)
+
+        e.preventDefault()
+      }
     })
 
     window.addEventListener('keyup', (e) => {
       // Special excpetion for Space
-      if (e.key === " ") {
-        this.keys.space = false
-      } else {
-        this.keys[e.key.toLowerCase()] = false
-        this.player.force = this.getVectorFromKeys(this.keys)
+      let key = e.key
+      if (key === " ") {
+        key = "space"
       }
 
-      e.preventDefault()
+      if (this.keys.hasOwnProperty(key.toLowerCase())) {
+        this.keys[key.toLowerCase()] = false
+        this.player.force = this.getVectorFromKeys(this.keys)
+
+        e.preventDefault()
+      }
     })
 
     setInterval(this.gameLoop.bind(this), 16)
@@ -162,55 +168,61 @@ export class Game {
 
   gameLoop() {
     let delay = 16 / 1000
-    // updateShooting direction
-
-    let x = this.player.force.x
-    let y = this.player.force.y
-
-    if (x > 0) {
-      this.playerShootingDirection.x = 1
-      this.playerShootingDirection.y = 0
-    } else if (x < 0) {
-      this.playerShootingDirection.x = -1
-      this.playerShootingDirection.y = 0
-    } else if (y < 0) {
-      this.playerShootingDirection.x = 0
-      this.playerShootingDirection.y = 1
-    } else if (y > 0) {
-      this.playerShootingDirection.x = 0
-      this.playerShootingDirection.y = -1
-    }
 
     // Shoot bullet
-    if (this.keys.space) {
-      let bulletModel = this.models.Player
-      let bulletDirection = this.playerShootingDirection
+    if (this.keys.space && this.shootCooldown < 0) {
+      // Cooldown for keys
+      this.shootCooldown = 20
+      let bulletModel = this.models.Bullet
+      let bulletDirection = this.player.lastMovingDirection
 
-      let bulletPosition = new V(this.player.position)
       const collisionBox = this.player.model.hitbox.collisionBox
+      let bulletPosition = new V(this.player.position).add(collisionBox.min)
 
-      if (bulletDirection.x > 0) {
-        bulletPosition.x += collisionBox.min.x - bulletModel.hitbox.collisionBox.max.x
-      } else if (bulletDirection.x < 0) {
-        bulletPosition.x += collisionBox.max.x
+      const BULLET_DISTANCE_MULTIPLIER = 0.003
+      let bulletOffset = this.player.velocity.scale(BULLET_DISTANCE_MULTIPLIER)
+      bulletOffset.x *= bulletModel.hitbox.collisionBox.max.x
+      bulletOffset.y *= bulletModel.hitbox.collisionBox.max.y
+      // Calculating padding to origin of player
+      if (bulletDirection.x < 0) {
+        // CollisionBox of player .min x - collsionBox of bullet .min x
+        bulletPosition.x += (bulletModel.hitbox.collisionBox.max.x * -1) + bulletOffset.x
+      } else if (bulletDirection.x > 0) {
+        // Max position of Player + multiplier
+        bulletPosition.x += collisionBox.max.x + bulletOffset.x
       }
 
-      if (bulletDirection.y > 0) {
-        bulletPosition.y += collisionBox.min.y - bulletModel.hitbox.collisionBox.max.y
-      } else if (bulletDirection.x < 0) {
-        bulletPosition.y += collisionBox.max.y
+      if (bulletDirection.x !== 0) {
+        bulletPosition.y += (collisionBox.max.y - bulletModel.hitbox.collisionBox.max.y) / 2
+      } else {
+        bulletPosition.x += (collisionBox.max.x - bulletModel.hitbox.collisionBox.max.x) / 2
       }
 
+      if (bulletDirection.y < 0) {
+        bulletPosition.y += (bulletModel.hitbox.collisionBox.max.y * -1) + bulletOffset.y
+      } else if (bulletDirection.y > 0) {
+        bulletPosition.y += collisionBox.max.y + bulletOffset.y
+      }
+
+      // add bullet to map
       this.entitiesMap.push(new Entity(
         new V(bulletPosition),
-        this.models.Player,
-        bulletDirection,
-        bulletDirection
+        bulletModel,
+        bulletDirection.scale(3),
+        bulletDirection.scale(800),
       ))
+    } else {
+      this.shootCooldown--
     }
 
     for (let i = 0; i < this.entitiesMap.length; i++) {
       let entity: Entity = this.entitiesMap[i]
+
+      // First update lastMoving position
+      if (entity.force.x !== 0 || entity.force.y !== 0) {
+        entity.lastMovingDirection = new V(entity.force)
+      }
+
       if (entity) {
         let acceleration: V = entity.force.scale(window.gameConfig.entityAcceleration)
 
@@ -223,6 +235,7 @@ export class Game {
 
         let collisions: Body[] = []
 
+        let bulletCollision = false
         for (let o = 0; o < this.blocksMap.length; o++) {
           let block: Block = this.blocksMap[o]
           if (block) {
@@ -230,7 +243,13 @@ export class Game {
             if (block.collision) {
               // Collision detection
               if (entity.checkCollision(block, position)) {
-                collisions.push(block)
+                // Special exception for bullets :)
+                if (entity.model === this.models.Bullet) {
+                  bulletCollision = true
+                  continue
+                } else {
+                  collisions.push(block)
+                }
               }
             }
           }
@@ -242,9 +261,21 @@ export class Game {
 
             // Collision detection
             if (entity.checkCollision(entity2, position)) {
-              collisions.push(entity2)
+              // Handling Body collisions with bullet
+              // Somewhat of hp stuff
+              if (entity.model === this.models.Bullet) {
+                bulletCollision = true
+                continue
+              } else {
+                collisions.push(entity2)
+              }
             }
           }
+        }
+
+        if (bulletCollision) {
+          this.entitiesMap.splice(i, 1)
+          continue
         }
 
         // sets new position or keeps last depending on collision
@@ -253,17 +284,17 @@ export class Game {
             .checkCollision(new Rectangle(position, entity.model.hitbox.collisionBox.max))
         ) {
           if (collisions.length > 0) {
-              let newPosition: V = new V(position.x, position.y)
-              let newVelocity: V = new V(entity.velocity.x, entity.velocity.y)
+            let newPosition: V = new V(position)
+            let newVelocity: V = new V(entity.velocity)
 
-              for (let i = 0; i < collisions.length; i++) {
-                let body = collisions[i]
-                let ret = entity.getCollisionPosition(newPosition, newVelocity, body)
-                newPosition = ret.position
-                newVelocity = ret.velocity
-              }
-              entity.position = newPosition
-              entity.velocity = newVelocity
+            for (let i = 0; i < collisions.length; i++) {
+              let body = collisions[i]
+              let ret = entity.getCollisionPosition(newPosition, newVelocity, body)
+              newPosition = ret.position
+              newVelocity = ret.velocity
+            }
+            entity.position = newPosition
+            entity.velocity = newVelocity
           } else {
             entity.position = position
           }

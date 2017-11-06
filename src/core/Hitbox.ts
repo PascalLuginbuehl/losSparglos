@@ -51,6 +51,8 @@ export class Hitbox {
       min = min.smalest(this.rectangles[i].min)
     }
 
+    max = max.subtract(min)
+
     return new Rectangle(min, max)
   }
 
